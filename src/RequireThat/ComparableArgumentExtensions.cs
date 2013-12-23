@@ -246,7 +246,11 @@ namespace RequireThat
             }
             catch (ArgumentException)
             {
-                throw ExceptionFactory.CreateArgumentException(argument, "");
+                throw ExceptionFactory.CreateArgumentException(
+                    argument,
+                    ExceptionMessages.IncomparableTypes.Inject(
+                        argument.GetType().FullName,
+                        comparisonValue.GetType().FullName));
             }
 
             throw new InvalidOperationException("This should not be possible, please report an issue at http://github.com/pmacn/Require.That with the code used get this exception.");
