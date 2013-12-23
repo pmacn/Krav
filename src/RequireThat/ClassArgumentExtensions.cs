@@ -15,11 +15,17 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsNotNull<T>(this Argument<T> argument) where T : class
+        public static Argument<T> IsNotNull<T>(this Argument<T> argument)
+            where T : class
+        {
+            return argument.IsNotNull(ExceptionMessages.WasNull);
+        }
+
+        public static Argument<T> IsNotNull<T>(this Argument<T> argument, string message)
+            where T : class
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.WasNull);
+                throw ExceptionFactory.CreateNullException(argument, message);
 
             return argument;
         }
