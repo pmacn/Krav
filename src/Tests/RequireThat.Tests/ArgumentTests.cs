@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xunit;
 using Xunit.Extensions;
 
@@ -94,7 +91,6 @@ namespace RequireThat.Tests
 
                 Assert.Same(requireThatArgument, result);
             }
-
 
             [Fact]
             public void WhenOfBaseType_ThrowsException()

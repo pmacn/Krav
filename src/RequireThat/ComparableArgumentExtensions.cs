@@ -249,7 +249,7 @@ namespace RequireThat
                 throw ExceptionFactory.CreateArgumentException(argument, "");
             }
 
-            throw new InvalidOperationException("IMPOSSIBRUU!");
+            throw new InvalidOperationException("This should not be possible, please report an issue at http://github.com/pmacn/Require.That with the code used get this exception.");
         }
     }
 }

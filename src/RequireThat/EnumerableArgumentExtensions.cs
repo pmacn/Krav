@@ -21,7 +21,8 @@ namespace RequireThat
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.EmptyCollection);
 
-            if(!argument.Value.GetEnumerator().MoveNext()) // poor-mans .Any()
+            // poor-mans .Any() since it's not available on IEnumerable
+            if(!argument.Value.GetEnumerator().MoveNext())
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.EmptyCollection);
             
             return argument;

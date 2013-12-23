@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using RequireThat.Resources;
-using Xunit;
-using System.Linq;
 using System.Collections;
+using System.Linq;
+using Xunit;
 
 namespace RequireThat.Tests
 {

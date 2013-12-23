@@ -1,5 +1,5 @@
-
 using System;
+
 namespace RequireThat
 {
     public static class Require
