@@ -26,6 +26,7 @@ namespace RequireThat
         /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
         /// <returns>The <paramref name="argument" />.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public static Argument<bool> IsTrue(this Argument<bool> argument, string message)
         {
             if (!argument.Value)
@@ -55,6 +56,7 @@ namespace RequireThat
         /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
         /// <returns>The <paramref name="argument" />.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public static Argument<bool> IsFalse(this Argument<bool> argument, string message)
         {
             if (argument.Value)

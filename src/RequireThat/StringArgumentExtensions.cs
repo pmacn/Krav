@@ -7,7 +7,7 @@ namespace RequireThat
     public static class StringArgumentExtensions
     {
         /// <summary>
-        /// Requires that the string argument is not null or empty.
+        /// Requires that the string <paramref name="argument"/> is not null or empty.
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
@@ -23,7 +23,7 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the string argument is not null, empty or only consisting of white-space characters.
+        /// Requires that the string <paramref name="argument"/> is not null, empty or only consisting of white-space characters.
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
