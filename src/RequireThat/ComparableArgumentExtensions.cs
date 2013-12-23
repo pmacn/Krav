@@ -16,7 +16,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsLessThan<T>(this Argument<T> argument, object limit) where T : IComparable
+        public static Argument<T> IsLessThan<T>(this Argument<T> argument, object limit)
+            where T : IComparable
         {
             return IsLessThanImpl(argument, limit);
         }
@@ -31,7 +32,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsLessThan<T>(this Argument<T> argument, T limit) where T : IComparable<T>
+        public static Argument<T> IsLessThan<T>(this Argument<T> argument, T limit)
+            where T : IComparable<T>
         {
             return IsLessThanImpl(argument, limit);
         }
@@ -59,7 +61,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, object limit) where T : IComparable
+        public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, object limit)
+            where T : IComparable
         {
             return IsLessThanOrEqualToImpl(argument, limit);
         }
@@ -74,7 +77,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, T limit) where T : IComparable<T>
+        public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, T limit)
+            where T : IComparable<T>
         {
             return IsLessThanOrEqualToImpl(argument, limit);
         }
@@ -102,7 +106,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, object limit) where T : IComparable
+        public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, object limit)
+            where T : IComparable
         {
             return IsGreaterThanImpl(argument, limit);
         }
@@ -117,7 +122,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, T limit) where T : IComparable<T>
+        public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, T limit)
+            where T : IComparable<T>
         {
             return IsGreaterThanImpl(argument, limit);
         }
@@ -145,7 +151,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, object limit) where T : IComparable
+        public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, object limit)
+            where T : IComparable
         {
             return IsGreaterThanOrEqualToImpl(argument, limit);
         }
@@ -160,7 +167,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, T limit) where T : IComparable<T>
+        public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, T limit)
+            where T : IComparable<T>
         {
             return IsGreaterThanOrEqualToImpl(argument, limit);
         }
@@ -189,7 +197,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsInRange<T>(this Argument<T> argument, object min, object max) where T: IComparable
+        public static Argument<T> IsInRange<T>(this Argument<T> argument, object min, object max)
+            where T: IComparable
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
@@ -217,7 +226,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T> IsInRange<T>(this Argument<T> argument, T min, T max) where T : IComparable<T>
+        public static Argument<T> IsInRange<T>(this Argument<T> argument, T min, T max)
+            where T : IComparable<T>
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
