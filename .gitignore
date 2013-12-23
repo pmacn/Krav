@@ -1,0 +1,37 @@
+# v2013-08-09.1
+# vs
+[Aa]pp_[Dd]ata/
+[Bb]in/
+[D]ebug/
+[Oo]bj/
+[Tt]est[Rr]esult/
+[Tt]emp/
+*.user
+*.vspscc
+*.vssscc
+*.suo
+*.cache
+
+# deploy
+deploy/build
+deploy/builds
+
+# misc
+*~
+*.swp
+*.sdf
+*.orig
+
+# nuget
+[Pp]ackages/
+
+# approvals#
+*.received.txt
+
+# resharper
+_ReSharper.*
+*.resharper*
+*.[Rr]e[Ss]harper.user
+
+#windows stuff
+Thumbs.db
