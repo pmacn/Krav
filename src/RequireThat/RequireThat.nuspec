@@ -4,9 +4,9 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <licenseUrl>http://github.com/pmacn/Require.That#license</licenseUrl>
+    <authors>pmacnaughton</authors>
+    <owners>pmacnaughton</owners>
+    <licenseUrl>https://github.com/pmacn/Require.That/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>http://github.com/pmacn/Require.That</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
