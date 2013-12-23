@@ -34,6 +34,18 @@ namespace RequireThat.Tests
             }
 
             [Fact]
+            public void WhenEmptyWithMessage_ThrowsExceptionWithMessage()
+            {
+                var emptyEnumerable = Enumerable.Empty<int>();
+                var message = "It was empty";
+
+                var ex = Assert.Throws<ArgumentException>(
+                    () => Require.That(emptyEnumerable, ArgumentName).IsNotEmpty(message));
+
+                Assert.Contains(message, ex.Message);
+            }
+
+            [Fact]
             public void WhenNotEmpty_DoesNotThrow()
             {
                 Assert.DoesNotThrow(
