@@ -1,5 +1,4 @@
-﻿using RequireThat.Resources;
-using System;
+﻿using System;
 using Xunit;
 
 namespace RequireThat.Tests

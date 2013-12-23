@@ -1,6 +1,4 @@
 using System;
-using RequireThat.Resources;
-using System.Text.RegularExpressions;
 using Xunit;
 
 namespace RequireThat.Tests
