@@ -27,6 +27,7 @@ namespace RequireThat
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
         public static Argument<T> IsNotNull<T>(this Argument<T> argument, string message)
