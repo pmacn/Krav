@@ -14,12 +14,26 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<Guid> IsNotEmpty(this Argument<Guid> statement)
+        public static Argument<Guid> IsNotEmpty(this Argument<Guid> argument)
         {
-            if (Guid.Empty.Equals(statement.Value))
-                throw ExceptionFactory.CreateArgumentException(statement, ExceptionMessages.EmptyGuid);
+            return argument.IsNotEmpty(ExceptionMessages.EmptyGuid);
+        }
 
-            return statement;
+        /// <summary>
+        /// Requires that the <paramref name="argument"/> is not the Empty Guid.
+        /// Throws an exception with the specified <paramref name="message"/> if the requirement is not met.
+        /// </summary>
+        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
+        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
+        public static Argument<Guid> IsNotEmpty(this Argument<Guid> argument, string message)
+        {
+            if (Guid.Empty.Equals(argument.Value))
+                throw ExceptionFactory.CreateArgumentException(argument, message);
+
+            return argument;
         }
     }
 }

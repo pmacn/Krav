@@ -8,7 +8,7 @@ namespace RequireThat.Tests
     {
         public const string ArgumentName = "foo";
 
-        public class IsOf
+        public class IsOfType
         {
             private class UnexpectedType { }
 

@@ -18,12 +18,27 @@ namespace RequireThat
         public static Argument<T> IsNotEmpty<T>(this Argument<T> argument)
             where T : IEnumerable
         {
+            return argument.IsNotEmpty(ExceptionMessages.EmptyCollection);
+        }
+
+        /// <summary>
+        /// Requires that the <paramref name="argument"/> is not empty.
+        /// Throws an exception with the specified <paramref name="message"/> if the requirement is not met.
+        /// </summary>
+        /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
+        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
+        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        public static Argument<T> IsNotEmpty<T>(this Argument<T> argument, string message)
+            where T : IEnumerable
+        {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.EmptyCollection);
 
             // poor-mans .Any() since it's not available on IEnumerable
             if(!argument.Value.GetEnumerator().MoveNext())
-                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.EmptyCollection);
+                throw ExceptionFactory.CreateArgumentException(argument, message);
             
             return argument;
         }

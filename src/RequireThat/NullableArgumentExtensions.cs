@@ -14,7 +14,8 @@ namespace RequireThat
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
-        public static Argument<T?> IsNotNull<T>(this Argument<T?> argument) where T : struct
+        public static Argument<T?> IsNotNull<T>(this Argument<T?> argument)
+            where T : struct
         {
             if (argument.Value == null || !argument.Value.HasValue)
                 throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.WasNull);

@@ -16,8 +16,22 @@ namespace RequireThat
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
-            if(String.IsNullOrEmpty(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.WasNullOrEmpty);
+            return argument.IsNotNullOrEmpty(ExceptionMessages.WasNullOrEmpty);
+        }
+
+        /// <summary>
+        /// Requires that the string <paramref name="argument"/> is not null or empty.
+        /// Throws an exception with the specified <paramref name="message"/> if the requirement is not met.
+        /// </summary>
+        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
+        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
+        public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument, string message)
+        {
+            if (String.IsNullOrEmpty(argument.Value))
+                throw ExceptionFactory.CreateArgumentException(argument, message);
 
             return argument;
         }
@@ -32,8 +46,22 @@ namespace RequireThat
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {
-            if (string.IsNullOrWhiteSpace(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.WasNullOrWhiteSpace);
+            return argument.IsNotNullOrWhiteSpace(ExceptionMessages.WasNullOrWhiteSpace);
+        }
+
+        /// <summary>
+        /// Requires that the string <paramref name="argument"/> is not null, empty or only consisting of white-space characters.
+        /// Throws an exception with the specified <paramref name="message"/> if the requirement is not met.
+        /// </summary>
+        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
+        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
+        public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument, string message)
+        {
+            if (String.IsNullOrWhiteSpace(argument.Value))
+                throw ExceptionFactory.CreateArgumentException(argument, message);
 
             return argument;
         }

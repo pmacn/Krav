@@ -198,4 +198,7 @@
   <data name="NotGreaterThanOrEqualTo_WasNull" xml:space="preserve">
     <value>Expected '{0}' to be greater than or equal to '{1}', but was null.</value>
   </data>
+  <data name="IncomparableTypes" xml:space="preserve">
+    <value>Cannot compare items of type '{0}' and '{1}'</value>
+  </data>
 </root>
