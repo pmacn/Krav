@@ -32,6 +32,17 @@ namespace RequireThat.Tests
             }
 
             [Fact]
+            public void WhenEmptyWithMessage_ThrowsExceptionWithMessage()
+            {
+                var message = "It was empty";
+
+                var ex = Assert.Throws<ArgumentException>(
+                    () => Require.That(String.Empty, ArgumentName).IsNotNullOrEmpty(message));
+
+                Assert.Contains(message, ex.Message);
+            }
+
+            [Fact]
             public void WhenNotEmpty_ReturnsArgument()
             {
                 var requireThatString = Require.That("foo", ArgumentName);
@@ -78,6 +89,18 @@ namespace RequireThat.Tests
             }
 
             [Fact]
+            public void WhenWhiteSpaceWithMessage_ThrowsExceptionWithMessage()
+            {
+                var message = "It was whitespace";
+                string value = "\t   ";
+
+                var ex = Assert.Throws<ArgumentException>(
+                    () => Require.That(value, ArgumentName).IsNotNullOrWhiteSpace(message));
+
+                Assert.Contains(message, ex.Message);
+            }
+
+            [Fact]
             public void WhenNotNullOrWhiteSpace_ReturnsArgument()
             {
                 var requirement = Require.That("foo", ArgumentName);
@@ -86,7 +109,6 @@ namespace RequireThat.Tests
 
                 Assert.Same(requirement, result);
             }
-
         }
     }
 }
