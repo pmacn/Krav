@@ -8,7 +8,7 @@ namespace RequireThat.Tests
 {
     public class FloatArgumentTests
     {
-        public const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsANumber
         {
@@ -16,9 +16,9 @@ namespace RequireThat.Tests
             public void WhenNotANumber()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Single.NaN, ArgumentName).IsANumber());
+                    () => Require.That(Single.NaN, ParameterName).IsANumber());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
         }
     }

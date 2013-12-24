@@ -5,14 +5,14 @@ namespace RequireThat.Tests
 {
     public class ComparableArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsLessThan
         {
             [Fact]
             public void WhenIsLess_ReturnsValidResult()
             {
-                var requireThatRed = Require.That(Apple.RedDelicious, ArgumentName);
+                var requireThatRed = Require.That(Apple.RedDelicious, ParameterName);
                 var result = requireThatRed.IsLessThan(Apple.Fuji);
 
                 Assert.Same(requireThatRed, result);
@@ -22,25 +22,25 @@ namespace RequireThat.Tests
             public void WhenIncompatibleTypes_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.RedDelicious, ArgumentName).IsLessThan(new Orange()));
+                    () => Require.That(Apple.RedDelicious, ParameterName).IsLessThan(new Orange()));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsGreater_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.Fuji, ArgumentName).IsLessThan(Apple.RedDelicious));
+                    () => Require.That(Apple.Fuji, ParameterName).IsLessThan(Apple.RedDelicious));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsNull_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(null as Apple, ArgumentName).IsLessThan(Apple.Fuji));
+                    () => Require.That(null as Apple, ParameterName).IsLessThan(Apple.Fuji));
             }
         }
 
@@ -49,7 +49,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenIsLessOrEqual_ReturnsArgument()
             {
-                var requireThatRed = Require.That(Apple.RedDelicious, ArgumentName);
+                var requireThatRed = Require.That(Apple.RedDelicious, ParameterName);
                 var result = requireThatRed
                     .IsLessThanOrEqualTo(Apple.RedDelicious)
                     .IsLessThanOrEqualTo(Apple.Fuji);
@@ -61,27 +61,27 @@ namespace RequireThat.Tests
             public void IncompatibleTypes_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.Fuji, ArgumentName).IsLessThanOrEqualTo(new Orange()));
+                    () => Require.That(Apple.Fuji, ParameterName).IsLessThanOrEqualTo(new Orange()));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsGreater_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.Fuji, ArgumentName).IsLessThanOrEqualTo(Apple.RedDelicious));
+                    () => Require.That(Apple.Fuji, ParameterName).IsLessThanOrEqualTo(Apple.RedDelicious));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsNull_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(null as Apple, ArgumentName).IsLessThanOrEqualTo(Apple.Fuji));
+                    () => Require.That(null as Apple, ParameterName).IsLessThanOrEqualTo(Apple.Fuji));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
         }
 
@@ -90,7 +90,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenIsGreater_ReturnsArgument()
             {
-                var requireThatFuji = Require.That(Apple.Fuji, ArgumentName);
+                var requireThatFuji = Require.That(Apple.Fuji, ParameterName);
 
                 var result = requireThatFuji.IsGreaterThan(Apple.RedDelicious);
 
@@ -101,27 +101,27 @@ namespace RequireThat.Tests
             public void IncompatibleTypes_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.Fuji, ArgumentName).IsGreaterThan(new Orange()));
+                    () => Require.That(Apple.Fuji, ParameterName).IsGreaterThan(new Orange()));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsLess_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.RedDelicious, ArgumentName).IsGreaterThan(Apple.Fuji));
+                    () => Require.That(Apple.RedDelicious, ParameterName).IsGreaterThan(Apple.Fuji));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsNull_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(null as Apple, ArgumentName).IsGreaterThan(Apple.RedDelicious));
+                    () => Require.That(null as Apple, ParameterName).IsGreaterThan(Apple.RedDelicious));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
         }
@@ -131,7 +131,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenIsGreaterOrEqual_ReturnsValidResult()
             {
-                var requireThatFuji = Require.That(Apple.Fuji, ArgumentName);
+                var requireThatFuji = Require.That(Apple.Fuji, ParameterName);
 
                 var result = requireThatFuji
                     .IsGreaterThanOrEqualTo(Apple.RedDelicious)
@@ -144,34 +144,34 @@ namespace RequireThat.Tests
             public void IncompatibleTypes_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.Fuji, ArgumentName).IsGreaterThanOrEqualTo(new Orange()));
+                    () => Require.That(Apple.Fuji, ParameterName).IsGreaterThanOrEqualTo(new Orange()));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsLess_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Apple.RedDelicious, ArgumentName).IsGreaterThanOrEqualTo(Apple.Fuji));
+                    () => Require.That(Apple.RedDelicious, ParameterName).IsGreaterThanOrEqualTo(Apple.Fuji));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenIsNull_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(null as Apple, ArgumentName).IsGreaterThanOrEqualTo(Apple.RedDelicious));
+                    () => Require.That(null as Apple, ParameterName).IsGreaterThanOrEqualTo(Apple.RedDelicious));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
         }
 
         [Fact]
         public void CanCompareDifferentNumericTypes()
         {
-            var requireThatArgument = Require.That(0.01, ArgumentName);
+            var requireThatArgument = Require.That(0.01, ParameterName);
 
             var result = requireThatArgument.IsLessThan(1);
 

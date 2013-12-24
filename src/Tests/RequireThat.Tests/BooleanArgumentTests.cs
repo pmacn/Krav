@@ -5,7 +5,7 @@ namespace RequireThat.Tests
 {
     public class BooleanArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsTrue
         {
@@ -13,9 +13,9 @@ namespace RequireThat.Tests
             public void WhenFalse_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(false, ArgumentName).IsTrue());
+                    () => Require.That(false, ParameterName).IsTrue());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -24,7 +24,7 @@ namespace RequireThat.Tests
                 var expectedMessage = "False is not true";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(false, ArgumentName).IsTrue(expectedMessage));
+                    () => Require.That(false, ParameterName).IsTrue(expectedMessage));
 
                 Assert.Contains(expectedMessage, ex.Message);
             }
@@ -33,13 +33,13 @@ namespace RequireThat.Tests
             public void WhenTrue_DoesNotThrow()
             {
                 Assert.DoesNotThrow(
-                    () => Require.That(true, ArgumentName).IsTrue());
+                    () => Require.That(true, ParameterName).IsTrue());
             }
 
             [Fact]
             public void WhenTrue_ReturnsArgument()
             {
-                var requireThatArgument = Require.That(true, ArgumentName);
+                var requireThatArgument = Require.That(true, ParameterName);
 
                 var result = requireThatArgument.IsTrue();
 
@@ -53,9 +53,9 @@ namespace RequireThat.Tests
             public void WhenTrue_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(true, ArgumentName).IsFalse());
+                    () => Require.That(true, ParameterName).IsFalse());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -64,7 +64,7 @@ namespace RequireThat.Tests
                 string expectedMessage = "True is not false";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(true, ArgumentName).IsFalse(expectedMessage));
+                    () => Require.That(true, ParameterName).IsFalse(expectedMessage));
 
                 Assert.Contains(expectedMessage, ex.Message);
             }
@@ -72,13 +72,13 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenFalse_DoesNotThrow()
             {
-                Assert.DoesNotThrow(() => Require.That(true, ArgumentName).IsTrue());
+                Assert.DoesNotThrow(() => Require.That(true, ParameterName).IsTrue());
             }
 
             [Fact]
             public void WhenFalse_ReturnsArgument()
             {
-                var requireThatArgument = Require.That(false, ArgumentName);
+                var requireThatArgument = Require.That(false, ParameterName);
                 var result = requireThatArgument.IsFalse();
 
                 Assert.Same(requireThatArgument, result);

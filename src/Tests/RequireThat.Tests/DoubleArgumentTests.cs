@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace RequireThat.Tests
 {
     public class DoubleArgumentTests
     {
-        public const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsANumber
         {
@@ -16,15 +13,15 @@ namespace RequireThat.Tests
             public void WhenNotANumber_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Double.NaN, ArgumentName).IsANumber());
+                    () => Require.That(Double.NaN, ParameterName).IsANumber());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
             public void WhenANumber_ReturnsArgument()
             {
-                var requireThatArgument = Require.That(Double.Epsilon, ArgumentName);
+                var requireThatArgument = Require.That(Double.Epsilon, ParameterName);
                 
                 var result = requireThatArgument.IsANumber();
 
