@@ -5,7 +5,7 @@ namespace RequireThat.Tests
 {
     public class StringArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsNotNullOrEmpty
         {
@@ -15,9 +15,9 @@ namespace RequireThat.Tests
                 string value = null;
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(value, ArgumentName).IsNotNullOrEmpty());
+                    () => Require.That(value, ParameterName).IsNotNullOrEmpty());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -26,9 +26,9 @@ namespace RequireThat.Tests
                 var value = string.Empty;
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(value, ArgumentName).IsNotNullOrEmpty());
+                    () => Require.That(value, ParameterName).IsNotNullOrEmpty());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -37,7 +37,7 @@ namespace RequireThat.Tests
                 var message = "It was empty";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(String.Empty, ArgumentName).IsNotNullOrEmpty(message));
+                    () => Require.That(String.Empty, ParameterName).IsNotNullOrEmpty(message));
 
                 Assert.Contains(message, ex.Message);
             }
@@ -45,7 +45,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenNotEmpty_ReturnsArgument()
             {
-                var requireThatString = Require.That("foo", ArgumentName);
+                var requireThatString = Require.That("foo", ParameterName);
 
                 var result = requireThatString.IsNotNull();
 
@@ -61,9 +61,9 @@ namespace RequireThat.Tests
                 string value = null;
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(value, ArgumentName).IsNotNullOrWhiteSpace());
+                    () => Require.That(value, ParameterName).IsNotNullOrWhiteSpace());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -72,9 +72,9 @@ namespace RequireThat.Tests
                 string value = string.Empty;
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(value, ArgumentName).IsNotNullOrWhiteSpace());
+                    () => Require.That(value, ParameterName).IsNotNullOrWhiteSpace());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -83,9 +83,9 @@ namespace RequireThat.Tests
                 string value = "\t   ";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(value, ArgumentName).IsNotNullOrWhiteSpace());
+                    () => Require.That(value, ParameterName).IsNotNullOrWhiteSpace());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -95,7 +95,7 @@ namespace RequireThat.Tests
                 string value = "\t   ";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(value, ArgumentName).IsNotNullOrWhiteSpace(message));
+                    () => Require.That(value, ParameterName).IsNotNullOrWhiteSpace(message));
 
                 Assert.Contains(message, ex.Message);
             }
@@ -103,7 +103,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenNotNullOrWhiteSpace_ReturnsArgument()
             {
-                var requirement = Require.That("foo", ArgumentName);
+                var requirement = Require.That("foo", ParameterName);
 
                 var result = requirement.IsNotNullOrWhiteSpace();
 

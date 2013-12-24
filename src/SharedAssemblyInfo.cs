@@ -10,9 +10,9 @@ using System.Runtime.InteropServices;
 #endif
 
 [assembly: AssemblyDescription("A simple guard clause library")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Peter MacNaughton")]
 [assembly: AssemblyCopyright("Copyright © Peter MacNaughton")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("0.9.0.*")]
-[assembly: AssemblyFileVersion("0.9.0")]
+[assembly: AssemblyVersion("0.9.2.*")]
+[assembly: AssemblyFileVersion("0.9.2")]

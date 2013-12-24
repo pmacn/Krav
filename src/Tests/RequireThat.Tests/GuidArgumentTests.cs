@@ -5,7 +5,7 @@ namespace RequireThat.Tests
 {
     public class GuidArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsNotEmpty
         {
@@ -13,9 +13,9 @@ namespace RequireThat.Tests
             public void WhenEmpty_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Guid.Empty, ArgumentName).IsNotEmpty());
+                    () => Require.That(Guid.Empty, ParameterName).IsNotEmpty());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -24,7 +24,7 @@ namespace RequireThat.Tests
                 var message = "It's the empty guid!";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Guid.Empty, ArgumentName).IsNotEmpty(message));
+                    () => Require.That(Guid.Empty, ParameterName).IsNotEmpty(message));
 
                 Assert.Contains(message, ex.Message);
             }
@@ -32,7 +32,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenNotEmpty_ReturnsArgument()
             {
-                var requireThatGuid = Require.That(Guid.NewGuid(), ArgumentName);
+                var requireThatGuid = Require.That(Guid.NewGuid(), ParameterName);
 
                 var result = requireThatGuid.IsNotEmpty();
 

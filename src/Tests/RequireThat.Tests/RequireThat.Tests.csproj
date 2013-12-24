@@ -58,6 +58,8 @@
     </Compile>
     <Compile Include="ArgumentTests.cs" />
     <Compile Include="ComparableArgumentTests.cs" />
+    <Compile Include="DoubleArgumentTests.cs" />
+    <Compile Include="FloatArgumentTests.cs" />
     <Compile Include="NullableArgumentTests.cs" />
     <Compile Include="BooleanArgumentTests.cs" />
     <Compile Include="EnumerableArgumentTests.cs" />

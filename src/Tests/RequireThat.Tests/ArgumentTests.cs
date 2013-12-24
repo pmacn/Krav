@@ -6,10 +6,10 @@ namespace RequireThat.Tests
 {
     public class ArgumentTests
     {
-        public const string ArgumentName = "foo";
-
         public class IsOfType
         {
+            private static readonly string ParameterName = Guid.NewGuid().ToString();
+
             private class UnexpectedType { }
 
             private class ExpectedType { }
@@ -28,9 +28,9 @@ namespace RequireThat.Tests
             public void WhenPrimitiveIsNotOfType_ThrowsArgumentException<T>(T argument, Type expectedType)
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(argument, ArgumentName).IsOfType(expectedType));
+                    () => Require.That(argument, ParameterName).IsOfType(expectedType));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Theory]
@@ -38,7 +38,7 @@ namespace RequireThat.Tests
             [InlineData(1, typeof(int))]
             public void WhenPrimitiveIsOfType_ReturnsArgument<T>(T argument, Type expectedType)
             {
-                var requireThatArgument = Require.That(argument, ArgumentName);
+                var requireThatArgument = Require.That(argument, ParameterName);
                 var result = requireThatArgument.IsOfType(expectedType);
 
                 Assert.Same(requireThatArgument, result);
@@ -48,9 +48,9 @@ namespace RequireThat.Tests
             public void WhenNotOfType_ThrowsArgumentException()
             {
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(unexpectedArgument, ArgumentName).IsOfType<ExpectedType>());
+                    () => Require.That(unexpectedArgument, ParameterName).IsOfType<ExpectedType>());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
             
             [Fact]
@@ -59,7 +59,7 @@ namespace RequireThat.Tests
                 var message = "This type was unexpected";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(unexpectedArgument, ArgumentName).IsOfType<ExpectedType>(message));
+                    () => Require.That(unexpectedArgument, ParameterName).IsOfType<ExpectedType>(message));
 
                 Assert.Contains(message, ex.Message);
             }
@@ -68,13 +68,13 @@ namespace RequireThat.Tests
             public void WhenOfType_DoesNotThrow()
             {
                 Assert.DoesNotThrow(
-                    () => Require.That(expectedArgument, ArgumentName).IsOfType<ExpectedType>());
+                    () => Require.That(expectedArgument, ParameterName).IsOfType<ExpectedType>());
             }
 
             [Fact]
             public void WhenOfType_ReturnsArgument()
             {
-                var requireThatArgument = Require.That(new ExpectedType(), ArgumentName);
+                var requireThatArgument = Require.That(new ExpectedType(), ParameterName);
 
                 var result = requireThatArgument.IsOfType<ExpectedType>();
 
@@ -85,7 +85,7 @@ namespace RequireThat.Tests
             public void WhenOfDerivedType_ReturnsArgument()
             {
                 var argument = new SubType() as object;
-                var requireThatArgument = Require.That(argument, ArgumentName);
+                var requireThatArgument = Require.That(argument, ParameterName);
 
                 var result = requireThatArgument.IsOfType<BaseType>();
 
@@ -98,9 +98,9 @@ namespace RequireThat.Tests
                 var argument = new BaseType();
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(argument, ArgumentName).IsOfType<SubType>());
+                    () => Require.That(argument, ParameterName).IsOfType<SubType>());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             // This Test is simply for documentation purposes and does not indicate a design feature.
@@ -110,9 +110,9 @@ namespace RequireThat.Tests
                 ExpectedType argument = null;
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That((object)argument, ArgumentName).IsOfType<ExpectedType>());
+                    () => Require.That((object)argument, ParameterName).IsOfType<ExpectedType>());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
         }
     }

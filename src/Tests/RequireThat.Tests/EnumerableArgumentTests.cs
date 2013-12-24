@@ -7,7 +7,7 @@ namespace RequireThat.Tests
 {
     public class EnumerableArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsNotEmpty
         {
@@ -17,9 +17,9 @@ namespace RequireThat.Tests
                 IEnumerable nullEnumerable = null;
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(nullEnumerable, ArgumentName).IsNotEmpty());
+                    () => Require.That(nullEnumerable, ParameterName).IsNotEmpty());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -28,9 +28,9 @@ namespace RequireThat.Tests
                 var emptyEnumerable = Enumerable.Empty<int>();
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(emptyEnumerable, ArgumentName).IsNotEmpty());
+                    () => Require.That(emptyEnumerable, ParameterName).IsNotEmpty());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -40,7 +40,7 @@ namespace RequireThat.Tests
                 var message = "It was empty";
 
                 var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(emptyEnumerable, ArgumentName).IsNotEmpty(message));
+                    () => Require.That(emptyEnumerable, ParameterName).IsNotEmpty(message));
 
                 Assert.Contains(message, ex.Message);
             }
@@ -55,7 +55,7 @@ namespace RequireThat.Tests
             [Fact]
             public void WhenNotEmpty_ReturnsArgument()
             {
-                var requireThatEnumerable = Require.That(Enumerable.Range(0, 100), ArgumentName);
+                var requireThatEnumerable = Require.That(Enumerable.Range(0, 100), ParameterName);
 
                 var result = requireThatEnumerable.IsNotEmpty();
 

@@ -5,7 +5,7 @@ namespace RequireThat.Tests
 {
     public class ClassArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsNotNull
         {
@@ -15,9 +15,9 @@ namespace RequireThat.Tests
                 object value = null;
 
                 var ex = Assert.Throws<ArgumentNullException>(
-                    () => Require.That(value, ArgumentName).IsNotNull());
+                    () => Require.That(value, ParameterName).IsNotNull());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             [Fact]
@@ -27,9 +27,9 @@ namespace RequireThat.Tests
                 var message = "It was null";
 
                 var ex = Assert.Throws<ArgumentNullException>(
-                    () => Require.That(value, ArgumentName).IsNotNull(message));
+                    () => Require.That(value, ParameterName).IsNotNull(message));
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
                 Assert.Contains(message, ex.Message);
             }
 
@@ -37,7 +37,7 @@ namespace RequireThat.Tests
             public void WhenNotNull_ReturnsArgument()
             {
                 var item = new { Value = 42 };
-                var requireThatObject = Require.That(item, ArgumentName);
+                var requireThatObject = Require.That(item, ParameterName);
 
                 var result = requireThatObject.IsNotNull();
                 

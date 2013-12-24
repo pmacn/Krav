@@ -5,7 +5,7 @@ namespace RequireThat.Tests
 {
     public class NullableArgumentTests
     {
-        private const string ArgumentName = "foo";
+        private static readonly string ParameterName = Guid.NewGuid().ToString();
 
         public class IsNotNull
         {
@@ -13,15 +13,15 @@ namespace RequireThat.Tests
             {
                 int? nullable = null;
                 var ex = Assert.Throws<ArgumentNullException>(
-                    () => Require.That(nullable, ArgumentName).IsNotNull());
+                    () => Require.That(nullable, ParameterName).IsNotNull());
 
-                Assert.Equal(ArgumentName, ex.ParamName);
+                Assert.Equal(ParameterName, ex.ParamName);
             }
 
             public void WhenNotNull_ReturnsArgument()
             {
                 int? nullableInt = 42;
-                var requireThatNullableInt = Require.That(nullableInt, ArgumentName);
+                var requireThatNullableInt = Require.That(nullableInt, ParameterName);
 
                 var result = requireThatNullableInt.IsNotNull();
 

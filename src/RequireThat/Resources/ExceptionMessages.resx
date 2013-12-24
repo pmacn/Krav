@@ -201,4 +201,7 @@
   <data name="IncomparableTypes" xml:space="preserve">
     <value>Cannot compare items of type '{0}' and '{1}'</value>
   </data>
+  <data name="IsNotANumber" xml:space="preserve">
+    <value>Value is required to be a number but was NaN.</value>
+  </data>
 </root>
