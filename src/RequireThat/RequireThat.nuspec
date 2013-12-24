@@ -10,7 +10,10 @@
     <projectUrl>http://github.com/pmacn/Require.That</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release</releaseNotes>
+    <releaseNotes>
+      - Added TypeArgumentExtensions.Is(Type) to complement TypeArgumentExtensions.Is&lt;T&gt;
+      - Added IsANumber requirements for float and double to require that they are not NaN
+    </releaseNotes>
     <copyright>Copyright 2013 Peter MacNaughton</copyright>
     <tags>argument validation guard clause</tags>
   </metadata>
