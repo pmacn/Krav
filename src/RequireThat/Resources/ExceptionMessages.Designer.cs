@@ -88,7 +88,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value is required to be a number but was NaN..
+        ///   Looks up a localized string similar to Value is required to be a number but was Not a Number..
         /// </summary>
         public static string IsNotANumber {
             get {
@@ -97,7 +97,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The param was expected to be type &apos;{0}&apos;, but was &apos;{1}&apos;..
+        ///   Looks up a localized string similar to Type value is expected to be &apos;{0}&apos;, but was &apos;{1}&apos;..
         /// </summary>
         public static string IsNotExpectedType {
             get {
@@ -106,7 +106,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The param was expected to be type &apos;{0}&apos;, but was NULL..
+        ///   Looks up a localized string similar to Type value is expected to be &apos;{0}&apos;, but was null..
         /// </summary>
         public static string IsNotExpectedType_WasNull {
             get {
@@ -124,7 +124,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not greater than limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to Value expected to be greater than &apos;{0}&apos;, but was &apos;{1}&apos;..
         /// </summary>
         public static string NotGreaterThan {
             get {
@@ -133,7 +133,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &apos;{0}&apos; to be greater than &apos;{1}&apos;, but was null..
+        ///   Looks up a localized string similar to Value expected to be greater than &apos;{0}&apos;, but was null..
         /// </summary>
         public static string NotGreaterThan_WasNull {
             get {
@@ -142,7 +142,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not greater than or equal to limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to Value expected to be greater than or equal to &apos;{0}&apos;, but was &apos;{1}&apos;..
         /// </summary>
         public static string NotGreaterThanOrEqualTo {
             get {
@@ -151,7 +151,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &apos;{0}&apos; to be greater than or equal to &apos;{1}&apos;, but was null..
+        ///   Looks up a localized string similar to Value expected to be greater than or equal to &apos;{0}&apos;, but was null..
         /// </summary>
         public static string NotGreaterThanOrEqualTo_WasNull {
             get {
@@ -160,7 +160,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &gt; max &apos;{1}&apos;..
+        ///   Looks up a localized string similar to Value expected to be in range &apos;{0}&apos; - &apos;{1}&apos;, but was greater than &apos;{1}&apos;..
         /// </summary>
         public static string NotInRange_TooHigh {
             get {
@@ -169,7 +169,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is &lt; min &apos;{1}&apos;..
+        ///   Looks up a localized string similar to Value expected to be in range &apos;{0}&apos; - &apos;{1}&apos;, but was less than &apos;{0}&apos;..
         /// </summary>
         public static string NotInRange_TooLow {
             get {
@@ -178,7 +178,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &apos;{0}&apos; to be in range &apos;{1}&apos; - &apos;{2}&apos;, but was null..
+        ///   Looks up a localized string similar to Value expected to be in range &apos;{0}&apos; - &apos;{1}&apos;, but was null..
         /// </summary>
         public static string NotInRange_WasNull {
             get {
@@ -187,7 +187,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &apos;{0}&apos; to be less than &apos;{1}&apos;, but was &apos;{2}&apos;..
+        ///   Looks up a localized string similar to Value expected to be less than &apos;{0}&apos;, but was &apos;{1}&apos;..
         /// </summary>
         public static string NotLessThan {
             get {
@@ -196,7 +196,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &apos;{0}&apos; to be less than &apos;{1}&apos;, but was null..
+        ///   Looks up a localized string similar to Value expected to be less than &apos;{0}&apos;, but was null..
         /// </summary>
         public static string NotLessThan_WasNull {
             get {
@@ -205,7 +205,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to value &apos;{0}&apos; is not less than or equal to limit &apos;{1}&apos;..
+        ///   Looks up a localized string similar to Value expected  to be less than or equal to &apos;{0}&apos;, but was &apos;{1}&apos;..
         /// </summary>
         public static string NotLessThanOrEqualTo {
             get {
@@ -214,7 +214,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expected &apos;{0}&apos; to be less than or equal to &apos;{1}&apos;, but was null..
+        ///   Looks up a localized string similar to Value expected to be less than or equal to &apos;{0}&apos;, but was null..
         /// </summary>
         public static string NotLessThanOrEqualTo_WasNull {
             get {
@@ -259,7 +259,7 @@ namespace RequireThat.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The string can&apos;t be left empty, null or consist of only whitespaces..
+        ///   Looks up a localized string similar to The string can not be null, empty or consist of only white-space..
         /// </summary>
         public static string WasNullOrWhiteSpace {
             get {

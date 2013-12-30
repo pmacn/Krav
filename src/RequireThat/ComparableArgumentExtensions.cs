@@ -42,11 +42,11 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotLessThan_WasNull.Inject(argument.Name, limit));
+                    ExceptionMessages.NotLessThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) >= 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                ExceptionMessages.NotLessThan.Inject(argument.Name, limit, argument.Value));
+                ExceptionMessages.NotLessThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -87,11 +87,11 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(argument.Name, limit));
+                    ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) > 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotLessThanOrEqualTo.Inject(argument.Value, limit));
+                    ExceptionMessages.NotLessThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -132,11 +132,11 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotGreaterThan_WasNull.Inject(argument.Name, limit));
+                    ExceptionMessages.NotGreaterThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) <= 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotGreaterThan.Inject(argument.Value, limit));
+                    ExceptionMessages.NotGreaterThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -177,11 +177,11 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotGreaterThanOrEqualTo_WasNull.Inject(argument.Name, limit));
+                    ExceptionMessages.NotGreaterThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) < 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotGreaterThanOrEqualTo.Inject(argument.Value, limit));
+                    ExceptionMessages.NotGreaterThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -202,15 +202,15 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotInRange_WasNull.Inject(argument.Name, min, max));
+                    ExceptionMessages.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotInRange_TooLow.Inject(argument.Value, min));
+                    ExceptionMessages.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotInRange_TooHigh.Inject(argument.Value, max));
+                    ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
         }
@@ -231,15 +231,15 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotInRange_WasNull.Inject(argument.Name, min, max));
+                    ExceptionMessages.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotInRange_TooLow.Inject(argument.Value, min));
+                    ExceptionMessages.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotInRange_TooHigh.Inject(argument.Value, max));
+                    ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
         }
