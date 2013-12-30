@@ -1,5 +1,6 @@
 using RequireThat.Resources;
 using System;
+using System.Diagnostics;
 
 namespace RequireThat
 {
@@ -22,6 +23,7 @@ namespace RequireThat
         /// <typeparam name="TExpected">The expected type</typeparam>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public Argument<T> IsOfType<TExpected>()
         {
             return this.IsOfType(typeof(TExpected), null);
@@ -34,6 +36,7 @@ namespace RequireThat
         /// <typeparam name="TExpected">The expected type</typeparam>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public Argument<T> IsOfType<TExpected>(string message)
         {
             return this.IsOfType(typeof(TExpected), message);
@@ -46,6 +49,7 @@ namespace RequireThat
         /// <param name="expectedType">The expected type.</param>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public Argument<T> IsOfType(Type expectedType)
         {
             return IsOfType(expectedType, null);
@@ -58,6 +62,7 @@ namespace RequireThat
         /// <param name="expectedType">The expected type.</param>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public Argument<T> IsOfType(Type expectedType, string message)
         {
             var actualType = Value == null ? typeof(T) : Value.GetType();

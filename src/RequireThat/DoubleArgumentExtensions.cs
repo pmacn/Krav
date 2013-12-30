@@ -1,6 +1,7 @@
 ﻿using RequireThat.Resources;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -14,6 +15,7 @@ namespace RequireThat
         /// </summary>
         /// <param name="argument"></param>
         /// <returns></returns>
+        [DebuggerStepThrough]
         public static Argument<double> IsANumber(this Argument<double> argument)
         {
             if (Double.IsNaN(argument.Value))

@@ -30,6 +30,7 @@ namespace RequireThat
         /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
         /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
+        [DebuggerStepThrough]
         public static Argument<T> IsNotNull<T>(this Argument<T> argument, string message)
             where T : class
         {
