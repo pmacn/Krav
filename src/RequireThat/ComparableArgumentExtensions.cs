@@ -87,7 +87,7 @@ namespace RequireThat
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.NotLessThanOrEqual_WasNull.Inject(argument.Name, limit));
+                    ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(argument.Name, limit));
 
             if (argument.CompareValueTo(limit) > 0)
                 throw ExceptionFactory.CreateArgumentException(argument,
