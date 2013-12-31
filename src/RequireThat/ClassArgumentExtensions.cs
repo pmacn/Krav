@@ -7,12 +7,16 @@ namespace RequireThat
     public static class ClassArgumentExtensions
     {
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is not null.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is not null. Throws an exception if the
+        ///   requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsNotNull<T>(this Argument<T> argument)
@@ -22,13 +26,17 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is not null.
-        /// Throws an exception with the specified <paramref name="message"/> if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is not null. Throws an exception with the
+        ///   specified <paramref name="message"/> if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
         /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <returns
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsNotNull<T>(this Argument<T> argument, string message)

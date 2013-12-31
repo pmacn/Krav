@@ -7,13 +7,19 @@ namespace RequireThat
     public static class ComparableArgumentExtensions
     {
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is less than <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is less than <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be less than.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be less than.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThan<T>(this Argument<T> argument, object limit)
@@ -23,13 +29,19 @@ namespace RequireThat
         }
   
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is less than <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is less than <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be less than.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be less than.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThan<T>(this Argument<T> argument, T limit)
@@ -52,13 +64,19 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is less than or equal to <paramref name="limit"/>
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is less than or equal to <paramref name="limit"/>
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be less than or equal to.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be less than or equal to.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, object limit)
@@ -68,13 +86,19 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is less than or equal to <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is less than or equal to <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be less than or equal to.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be less than or equal to.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, T limit)
@@ -97,13 +121,19 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is greater than <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is greater than <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be greater than.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be greater than.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, object limit)
@@ -113,13 +143,19 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is greater than <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is greater than <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be greater than.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be greater than.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, T limit)
@@ -146,9 +182,15 @@ namespace RequireThat
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
-        /// <param name="limit">The limit that the <paramref name="argument"/> must be greater than or equal to.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
+        /// <param name="argument">
+        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
+        /// </param>
+        /// <param name="limit">
+        ///   The limit that the <paramref name="argument"/> must be greater than or equal to.
+        /// </param>
+        /// <returns>
+        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, object limit)

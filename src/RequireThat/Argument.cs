@@ -49,8 +49,8 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the argument is of type <typeparamref name="T"/> or a derived type.
-        /// Throws an exception if there requirement is not met.
+        ///   Requires that the argument is of type <typeparamref name="T"/> or a derived type. Throws
+        ///   an exception if there requirement is not met.
         /// </summary>
         /// <typeparam name="TExpected">The expected type</typeparam>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
@@ -62,8 +62,8 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the argument is of type <typeparamref name="T"/> or a derived type.
-        /// Throws an exception if there requirement is not met.
+        ///   Requires that the argument is of type <typeparamref name="T"/> or a derived type. Throws
+        ///   an exception if there requirement is not met.
         /// </summary>
         /// <typeparam name="TExpected">The expected type</typeparam>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
@@ -75,8 +75,8 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the argument is of the <paramref name="expectedType"/> or a derived type.
-        /// Throws an exception if there requirement is not met.
+        ///   Requires that the argument is of the <paramref name="expectedType"/> or a derived type.
+        ///   Throws an exception if there requirement is not met.
         /// </summary>
         /// <param name="expectedType">The expected type.</param>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
@@ -88,8 +88,8 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the argument is of the <paramref name="expectedType"/> or a derived type.
-        /// Throws an exception if there requirement is not met.
+        ///   Requires that the argument is of the <paramref name="expectedType"/> or a derived type.
+        ///   Throws an exception if there requirement is not met.
         /// </summary>
         /// <param name="expectedType">The expected type.</param>
         /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
