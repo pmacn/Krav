@@ -53,7 +53,6 @@
     <Compile Include="DoubleArgumentExtensions.cs" />
     <Compile Include="FloatArgumentExtensions.cs" />
     <Compile Include="Require.cs" />
-    <Compile Include="BooleanArgumentExtensions.cs" />
     <Compile Include="EnumerableArgumentExtensions.cs" />
     <Compile Include="ComparableArgumentExtensions.cs" />
     <Compile Include="GuidArgumentExtensions.cs" />
