@@ -34,11 +34,7 @@ namespace RequireThat
         public static Argument<T> IsNotEmpty<T>(this Argument<T> argument, string message)
             where T : IEnumerable
         {
-            if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.EmptyCollection);
-
-            // poor-mans .Any() since it's not available on IEnumerable
-            if(!argument.Value.GetEnumerator().MoveNext())
+            if (argument.Value == null || !argument.Value.GetEnumerator().MoveNext())
                 throw ExceptionFactory.CreateArgumentException(argument, message);
             
             return argument;

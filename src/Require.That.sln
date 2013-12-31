@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat", "RequireThat\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat.Tests", "Tests\RequireThat.Tests\RequireThat.Tests.csproj", "{B819F092-F369-4819-AD2F-E5DABE1A0D92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat.PerformanceTests", "RequireThat.PerformanceTests\RequireThat.PerformanceTests.csproj", "{EB20D39B-1DA3-427F-96EC-3187B5A337E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,11 +37,18 @@ Global
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92}.Deploy|Any CPU.Build.0 = Deploy|Any CPU
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Deploy|Any CPU.Build.0 = Debug|Any CPU
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92} = {8974ABF3-C25D-4974-A0B1-44A7A0EE44AE}
+		{EB20D39B-1DA3-427F-96EC-3187B5A337E6} = {8974ABF3-C25D-4974-A0B1-44A7A0EE44AE}
 	EndGlobalSection
 EndGlobal
