@@ -21,16 +21,7 @@ namespace RequireThat
         [DebuggerStepThrough]
         public static Argument<Type> Is<TExpected>(this Argument<Type> argument)
         {
-            var expectedType = typeof(TExpected);
-            if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.IsNotExpectedType_WasNull.Inject(expectedType.FullName));
-
-            if (!expectedType.IsAssignableFrom(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.IsNotExpectedType.Inject(expectedType.FullName, argument.Value.FullName));
-
-            return argument;
+            return argument.Is(typeof(TExpected));
         }
 
         /// <summary>
@@ -49,7 +40,7 @@ namespace RequireThat
         public static Argument<Type> Is(this Argument<Type> argument, Type expectedType)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.IsNotExpectedType_WasNull.Inject(expectedType.FullName));
 
             if (!expectedType.IsAssignableFrom(argument.Value))

@@ -41,7 +41,7 @@ namespace RequireThat
         private static Argument<T> IsLessThanImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.NotLessThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) >= 0)
@@ -86,7 +86,7 @@ namespace RequireThat
         private static Argument<T> IsLessThanOrEqualToImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) > 0)
@@ -131,7 +131,7 @@ namespace RequireThat
         public static Argument<T> IsGreaterThanImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.NotGreaterThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) <= 0)
@@ -176,7 +176,7 @@ namespace RequireThat
         private static Argument<T> IsGreaterThanOrEqualToImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.NotGreaterThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) < 0)
@@ -201,7 +201,7 @@ namespace RequireThat
             where T: IComparable
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
@@ -230,7 +230,7 @@ namespace RequireThat
             where T : IComparable<T>
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.CreateNullException(argument,
                     ExceptionMessages.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)

@@ -30,7 +30,10 @@ namespace RequireThat
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument, string message)
         {
-            if (String.IsNullOrEmpty(argument.Value))
+            if (argument.Value == null)
+                throw ExceptionFactory.CreateNullException(argument, message);
+
+            if (argument.Value.Length == 0)
                 throw ExceptionFactory.CreateArgumentException(argument, message);
 
             return argument;
@@ -60,6 +63,9 @@ namespace RequireThat
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument, string message)
         {
+            if (argument.Value == null)
+                throw ExceptionFactory.CreateNullException(argument, message);
+
             if (String.IsNullOrWhiteSpace(argument.Value))
                 throw ExceptionFactory.CreateArgumentException(argument, message);
 
