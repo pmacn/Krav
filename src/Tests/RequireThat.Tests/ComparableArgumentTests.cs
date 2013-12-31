@@ -37,9 +37,9 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenIsNull_ThrowsArgumentException()
+            public void WhenIsNull_ThrowsArgumentNullException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Apple, ParameterName).IsLessThan(Apple.Fuji));
             }
         }
@@ -76,9 +76,9 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenIsNull_ThrowsArgumentException()
+            public void WhenIsNull_ThrowsArgumentNullException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Apple, ParameterName).IsLessThanOrEqualTo(Apple.Fuji));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -116,9 +116,9 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenIsNull_ThrowsArgumentException()
+            public void WhenIsNull_ThrowsArgumentNullException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Apple, ParameterName).IsGreaterThan(Apple.RedDelicious));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -159,9 +159,9 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenIsNull_ThrowsArgumentException()
+            public void WhenIsNull_ThrowsArgumentNullException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Apple, ParameterName).IsGreaterThanOrEqualTo(Apple.RedDelicious));
 
                 Assert.Equal(ParameterName, ex.ParamName);

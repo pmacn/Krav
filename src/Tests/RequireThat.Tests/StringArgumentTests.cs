@@ -10,11 +10,11 @@ namespace RequireThat.Tests
         public class IsNotNullOrEmpty
         {
             [Fact]
-            public void WhenNull_ThrowsArgumentException()
+            public void WhenNull_ThrowsArgumentNullException()
             {
                 string value = null;
 
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(value, ParameterName).IsNotNullOrEmpty());
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -56,11 +56,11 @@ namespace RequireThat.Tests
         public class IsNotNullOrWhiteSpace
         {
             [Fact]
-            public void WhenNull_ThrowsArgumentException()
+            public void WhenNull_ThrowsArgumentNullException()
             {
                 string value = null;
 
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(value, ParameterName).IsNotNullOrWhiteSpace());
 
                 Assert.Equal(ParameterName, ex.ParamName);

@@ -12,11 +12,11 @@ namespace RequireThat.Tests
         public class IsNotEmpty
         {
             [Fact]
-            public void WhenNull_ThrowsArgumentException()
+            public void WhenNull_ThrowsArgumentNullException()
             {
                 IEnumerable nullEnumerable = null;
 
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(nullEnumerable, ParameterName).IsNotEmpty());
 
                 Assert.Equal(ParameterName, ex.ParamName);

@@ -14,11 +14,11 @@ namespace RequireThat.Tests
         public class Is
         {
             [Fact]
-            public void WhenNull_ThrowsArgumentException()
+            public void WhenNull_ThrowsArgumentNullException()
             {
                 var expectedType = typeof(bool);
 
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Type, ParameterName).Is(expectedType));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -52,9 +52,9 @@ namespace RequireThat.Tests
         public class IsOfT
         {
             [Fact]
-            public void WhenNull_ThrowsArgumentException()
+            public void WhenNull_ThrowsArgumentNullException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Type, ParameterName).Is<bool>());
 
                 Assert.Equal(ParameterName, ex.ParamName);
