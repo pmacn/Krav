@@ -62,7 +62,6 @@
     <Compile Include="FloatArgumentTests.cs" />
     <Compile Include="LambdaArgumentTests.cs" />
     <Compile Include="NullableArgumentTests.cs" />
-    <Compile Include="BooleanArgumentTests.cs" />
     <Compile Include="EnumerableArgumentTests.cs" />
     <Compile Include="GuidArgumentTests.cs" />
     <Compile Include="ClassArgumentTests.cs" />

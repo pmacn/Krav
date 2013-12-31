@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RequireThat\RequireThat.csproj">
+    <ProjectReference Include="..\..\RequireThat\RequireThat.csproj">
       <Project>{84c64fbf-a7d0-4057-b437-762a646457a2}</Project>
       <Name>RequireThat</Name>
     </ProjectReference>

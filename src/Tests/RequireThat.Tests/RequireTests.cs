@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace RequireThat.Tests
@@ -18,6 +19,33 @@ namespace RequireThat.Tests
             {
                 Assert.DoesNotThrow(
                     () => Require.That("foo", "argument"));
+            }
+        }
+
+        public class ThatStatement
+        {
+            [Fact]
+            public void FalseStatement_ThrowsException()
+            {
+                var statement = false;
+                string message = "message";
+
+                var ex = Assert.Throws<ArgumentException>(
+                    () =>
+                    {
+                        Require.That(statement, message);
+                    });
+
+                Assert.Equal(message, ex.Message);
+                Assert.Equal(null, ex.ParamName);
+            }
+
+            [Fact]
+            public void TrueStatement_DoesNotThrow()
+            {
+                var statement = true;
+                Assert.DoesNotThrow(
+                    () => Require.That(statement, "message"));
             }
         }
     }
