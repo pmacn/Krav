@@ -164,7 +164,7 @@ namespace RequireThat
             return IsGreaterThanImpl(argument, limit);
         }
 
-        public static Argument<T> IsGreaterThanImpl<T>(Argument<T> argument, object limit)
+        private static Argument<T> IsGreaterThanImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,

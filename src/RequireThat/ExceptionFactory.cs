@@ -2,7 +2,7 @@
 
 namespace RequireThat
 {
-    public static class ExceptionFactory
+    internal static class ExceptionFactory
     {
         public static ArgumentException CreateArgumentException<T>(Argument<T> argument, string message)
         {
