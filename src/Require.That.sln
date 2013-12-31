@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat", "RequireThat\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat.Tests", "Tests\RequireThat.Tests\RequireThat.Tests.csproj", "{B819F092-F369-4819-AD2F-E5DABE1A0D92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat.PerformanceTests", "RequireThat.PerformanceTests\RequireThat.PerformanceTests.csproj", "{EB20D39B-1DA3-427F-96EC-3187B5A337E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireThat.PerformanceTests", "Tests\RequireThat.PerformanceTests\RequireThat.PerformanceTests.csproj", "{EB20D39B-1DA3-427F-96EC-3187B5A337E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
