@@ -37,7 +37,7 @@ do it).
 Some things that will increase the chance that your pull request is accepted.
 
 * Follow existing code conventions. Most of what we do follows standard .NET
-  conventions except in a few places. We include a ReSharper team settings file.
+  conventions except in a few places.
 * Include unit tests that would otherwise fail without your code, but pass with 
   it.
 * Update the documentation, the surrounding one, examples elsewhere, guides, 
