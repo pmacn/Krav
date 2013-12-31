@@ -11,8 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
-      - Added TypeArgumentExtensions.Is(Type) to complement TypeArgumentExtensions.Is&lt;T&gt;
-      - Added IsANumber requirements for float and double to require that they are not NaN
+- Added support for Require.That&lt;T&gt;(Func&lt;T&gt;) to enable a more refactor-friendly approach, at the cost of some performance.
     </releaseNotes>
     <copyright>Copyright 2013 Peter MacNaughton</copyright>
     <tags>argument validation guard clause</tags>
