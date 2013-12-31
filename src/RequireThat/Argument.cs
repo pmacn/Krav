@@ -38,10 +38,14 @@ namespace RequireThat
             // HACK: since GetMethodBody is not available in PCL's this seems to be the best
             // bet at getting the name of the variable in the delegate.
             var functionFields = target.GetType().GetFields();
-            if (functionFields.Length != 1)
-                return String.Empty;
+            if (functionFields.Length == 1)
+                return functionFields[0].Name;
 
-            return functionFields[0].Name;
+            var functionProps = target.GetType().GetProperties();
+            if(functionProps.Length == 1)
+                return functionProps[0].Name;
+
+            return String.Empty;
         }
 
         /// <summary>

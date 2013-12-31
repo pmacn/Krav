@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace RequireThat.Tests
@@ -38,6 +35,17 @@ namespace RequireThat.Tests
                     () => Require.That(() => String.Concat(" ", "\t")).IsNotNullOrWhiteSpace());
 
                 Assert.Equal("", ex.ParamName);
+            }
+
+            [Fact]
+            public void WhenProperty_ExceptionShouldHaveCorrectParamName()
+            {
+                // This is simply here because I had to make a decision about properties and is not
+                // recommended use in any way
+                var ex = Assert.Throws<ArgumentNullException>(
+                    () => Require.That(() => MyProperty).IsNotNull());
+
+                Assert.Equal("MyProperty", ex.ParamName);
             }
         }
     }
