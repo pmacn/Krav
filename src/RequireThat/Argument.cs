@@ -8,12 +8,40 @@ namespace RequireThat
     {
         internal readonly T Value;
 
-        internal readonly string Name;
+        internal string Name { get { return name ?? (name = GetMemberName()); } }
+
+        private readonly Func<T> function;
+
+        private string name;
 
         internal Argument(string name, T value)
         {
-            Name = name;
+            this.name = name;
             Value = value;
+        }
+
+        internal Argument(Func<T> function)
+        {
+            this.function = function;
+            this.Value = function();
+        }
+        
+        private string GetMemberName()
+        {
+            if (function == null)
+                return String.Empty;
+
+            var target = function.Target;
+            if (target == null)
+                return String.Empty;
+
+            // HACK: since GetMethodBody is not available in PCL's this seems to be the best
+            // bet at getting the name of the variable in the delegate.
+            var functionFields = target.GetType().GetFields();
+            if (functionFields.Length != 1)
+                return String.Empty;
+
+            return functionFields[0].Name;
         }
 
         /// <summary>
