@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>pmacnaughton</authors>
     <owners>pmacnaughton</owners>
-    <licenseUrl>https://github.com/pmacn/Require.That/blob/master/LICENSE.txt</licenseUrl>
+    <licenseUrl>http://raw.github.com/pmacn/Require.That/master/LICENSE.txt</licenseUrl>
     <projectUrl>http://github.com/pmacn/Require.That</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
