@@ -9,9 +9,12 @@ namespace RequireThat.Tests
         {
             public string MyProperty { get; set; }
 
+            public string myField;
+
             [Fact]
             public void WhenField_ExceptionShouldHaveCorrectParamName()
             {
+                var meh = "";
                 string myArgument = null;
                 var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(() => myArgument).IsNotNull());
@@ -38,14 +41,12 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenProperty_ExceptionShouldHaveCorrectParamName()
+            public void WhenNotLocalVariable_ParamNameIsEmptyString()
             {
-                // This is simply here because I had to make a decision about properties and is not
-                // recommended use in any way
                 var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(() => MyProperty).IsNotNull());
 
-                Assert.Equal("MyProperty", ex.ParamName);
+                Assert.Equal("", ex.ParamName);
             }
         }
     }

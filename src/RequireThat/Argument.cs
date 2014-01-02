@@ -1,6 +1,7 @@
 using RequireThat.Resources;
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace RequireThat
 {
@@ -35,15 +36,21 @@ namespace RequireThat
             if (target == null)
                 return String.Empty;
 
+            var targetType = target.GetType();
+
+            // TODO: Need to check if there's a better way to assert that the target is a lambda closure class
+            // or whatever they would be called.
+            var attributes = targetType.GetCustomAttributes(typeof(CompilerGeneratedAttribute), false);
+            if (attributes.Length == 0)
+                return String.Empty;
+
             // HACK: since GetMethodBody is not available in PCL's this seems to be the best
             // bet at getting the name of the variable in the delegate.
+            // This will of course fail horribly if the implementation of lambda closures
+            // ever changes.
             var functionFields = target.GetType().GetFields();
             if (functionFields.Length == 1)
                 return functionFields[0].Name;
-
-            var functionProps = target.GetType().GetProperties();
-            if(functionProps.Length == 1)
-                return functionProps[0].Name;
 
             return String.Empty;
         }
