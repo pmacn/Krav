@@ -22,7 +22,7 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenLiteral_ParamNameIsEmptyString()
+            public void WhenLiteral_ParamNameIsEmpty()
             {
                 var ex = Assert.Throws<ArgumentException>(
                     () => Require.That(() => "").IsNotNullOrEmpty());
@@ -31,7 +31,7 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenStatement_ParameNameIsEmptyString()
+            public void WhenStatement_ParameNameIsEmpty()
             {
                 var ex = Assert.Throws<ArgumentException>(
                     () => Require.That(() => String.Concat(" ", "\t")).IsNotNullOrWhiteSpace());
@@ -40,7 +40,7 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenStatementWithTwoArguments_ParameterNameIsEmptyString()
+            public void WhenStatementWithTwoArguments_ParameterNameIsEmpty()
             {
                 var foo = "    ";
                 var bar = "\t";
@@ -51,7 +51,7 @@ namespace RequireThat.Tests
             }
 
             [Fact(Skip = "I don't know that we can actually make this one pass, but I would like to!")]
-            public void WhenStatementWithSingleArgument_ParamNameIsEmptyString()
+            public void WhenStatementWithSingleArgument_ParamNameIsEmpty()
             {
                 var foo = "    ";
                 var ex = Assert.Throws<ArgumentException>(
@@ -61,7 +61,7 @@ namespace RequireThat.Tests
             }
 
             [Fact]
-            public void WhenNotLocalVariable_ParamNameIsEmptyString()
+            public void WhenNotLocalVariable_ParamNameIsEmpty()
             {
                 var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(() => MyProperty).IsNotNull());
