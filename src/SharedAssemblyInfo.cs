@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyDescription("A simple guard clause library")]
 [assembly: AssemblyCompany("Peter MacNaughton")]
-[assembly: AssemblyCopyright("Copyright © Peter MacNaughton")]
+[assembly: AssemblyCopyright("Copyright 2014 © Peter MacNaughton")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.0.0.*")]
-[assembly: AssemblyFileVersion("1.0.0")]
+[assembly: AssemblyVersion("1.1.0.*")]
+[assembly: AssemblyFileVersion("1.1.0")]
