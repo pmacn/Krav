@@ -53,9 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="ArgumentTests.cs" />
     <Compile Include="ComparableArgumentTests.cs" />
     <Compile Include="DoubleArgumentTests.cs" />
@@ -65,6 +62,7 @@
     <Compile Include="EnumerableArgumentTests.cs" />
     <Compile Include="GuidArgumentTests.cs" />
     <Compile Include="ClassArgumentTests.cs" />
+    <Compile Include="SimpleTests.cs" />
     <Compile Include="StringArgumentTests.cs" />
     <Compile Include="TypeArgumentTests.cs" />
     <Compile Include="RequireTests.cs" />
@@ -74,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\RequireThat.Simple\RequireThat.Simple.csproj">
+      <Project>{b52f3805-e3d8-40fd-8618-e9d5aca7c462}</Project>
+      <Name>RequireThat.Simple</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\RequireThat\RequireThat.csproj">
       <Project>{84c64fbf-a7d0-4057-b437-762a646457a2}</Project>
       <Name>RequireThat</Name>

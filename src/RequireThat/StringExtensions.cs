@@ -2,16 +2,25 @@ using System;
 
 namespace RequireThat
 {
-    internal static class StringExtensions
+    public static class StringExtensions
     {
-        internal static string Inject(this string format, params object[] args)
+        public static string Inject(this string format, params object[] args)
         {
             return String.Format(format, args);
         }
 
-        internal static string Inject(this string format, params string[] args)
+        public static string Inject(this string format, params string[] args)
         {
             return String.Format(format, args);
+        }
+
+        public static bool Any(this string source, Func<char, bool> predicate)
+        {
+            foreach (var c in source)
+                if (predicate(c))
+                    return true;
+
+            return false;
         }
     }
 }

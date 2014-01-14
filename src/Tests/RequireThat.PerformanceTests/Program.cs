@@ -26,10 +26,12 @@ namespace RequireThat.PerformanceTests
             DoWarmup();
 
             var nonLambdaResults = RunNonLambdaTests();
-            var lambdaResults = RunLambdaTest();
+            var lambdaResults = RunLambdaTests();
+            var simpleResults = RunSimpleTests();
 
             PrintResults("Non-lambda test results", nonLambdaResults);
             PrintResults("Lambda test results", lambdaResults);
+            PrintResults("Simple test results", simpleResults);
 
             Console.ReadKey();
         }
@@ -42,6 +44,7 @@ namespace RequireThat.PerformanceTests
             {
                 Require.That(foo, "foo").IsNotNullOrEmpty();
                 Require.That(() => foo).IsNotNullOrEmpty();
+                RequireThat.NotNullOrEmpty(foo, "foo");
             }
 
             stopwatch.Stop();
@@ -66,7 +69,7 @@ namespace RequireThat.PerformanceTests
             return results;
         }
 
-        private static long[] RunLambdaTest()
+        private static long[] RunLambdaTests()
         {
             Console.WriteLine("Running {0} iterations of {1} lambda requirements each.", numberOfIterations, callsPerIteration);
             var results = new long[numberOfIterations];
@@ -77,6 +80,25 @@ namespace RequireThat.PerformanceTests
                 stopwatch.Start();
                 for (int callCount = 0; callCount < callsPerIteration; callCount++)
                     Require.That(() => foo).IsNotNullOrEmpty();
+
+                stopwatch.Stop();
+                results[i] = stopwatch.ElapsedTicks;
+            }
+
+            return results;
+        }
+
+        private static long[] RunSimpleTests()
+        {
+            Console.WriteLine("Running {0} iterations of {1} simple requirements each.", numberOfIterations, callsPerIteration);
+            var results = new long[numberOfIterations];
+            for (int i = 0; i < numberOfIterations; i++)
+            {
+                var foo = Guid.NewGuid().ToString() + Environment.TickCount.ToString();
+                stopwatch.Reset();
+                stopwatch.Start();
+                for (int callCount = 0; callCount < callsPerIteration; callCount++)
+                    RequireThat.NotNullOrEmpty(foo, "foo");
 
                 stopwatch.Stop();
                 results[i] = stopwatch.ElapsedTicks;
