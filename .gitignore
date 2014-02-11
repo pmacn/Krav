@@ -12,6 +12,16 @@
 *.suo
 *.cache
 
+# build
+build/
+
+#tools
+tools/xunit.runners
+tools/FAKE
+
+#test results
+testresults/
+
 # deploy
 deploy/build
 deploy/builds

@@ -16,9 +16,7 @@ run the following command in a git shell.
 ```
 git clone git@github.com:pmacn/Require.That.git Require.That
 ```
-* Make sure the project builds and all tests pass on your machine (I'll include
-a fancy build script later, for now just build and run tests however you usually
-do it).
+* Make sure the project builds and all tests pass on your machine by running `build.bat`.
 
 ## Making Changes
 
@@ -36,8 +34,6 @@ do it).
 
 Some things that will increase the chance that your pull request is accepted.
 
-* Follow existing code conventions. Most of what we do follows standard .NET
-  conventions except in a few places.
 * Include unit tests that would otherwise fail without your code, but pass with 
   it.
 * Update the documentation, the surrounding one, examples elsewhere, guides, 
