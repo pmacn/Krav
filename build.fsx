@@ -1,9 +1,11 @@
 #r "tools/FAKE/tools/FakeLib.dll"
 open Fake
+open Fake.AssemblyInfoFile
 
 RestorePackages()
 
 // Properties
+let version = "1.1.0"
 let buildDir = "./build/"
 let mainBuildDir = buildDir + "Krav/"
 let simpleBuildDir = buildDir + "Krav.Simple/"
@@ -17,15 +19,29 @@ Target "Clean" (fun _ ->
 )
 
 Target "BuildMain" (fun _ ->
-    !! "src/Krav/**/*.csproj"
-      |> MSBuildRelease mainBuildDir "Build"
-      |> Log "AppBuild-Output: "
+  CreateCSharpAssemblyInfo "./src/Krav/Properties/AssemblyInfo.cs"
+    [ Attribute.Title "Krav"
+      Attribute.Description "Readable preconditions"
+      Attribute.Product "Krav"
+      Attribute.Version version
+      Attribute.FileVersion version ]
+
+  !! "src/Krav/**/*.csproj"
+    |> MSBuildRelease mainBuildDir "Build"
+    |> Log "AppBuild-Output: "
 )
 
 Target "BuildSimple" (fun _ ->
-    !! "src/Krav.Simple/**/*.csproj"
-      |> MSBuildRelease simpleBuildDir "Build"
-      |> Log "AppBuild-Output: "
+  CreateCSharpAssemblyInfo "./src/Krav.Simple/Properties/AssemblyInfo.cs"
+    [ Attribute.Title "Krav.Simple"
+      Attribute.Description "Snappy and readable preconditions"
+      Attribute.Product "Krav.Simple"
+      Attribute.Version version
+      Attribute.FileVersion version ]
+
+  !! "src/Krav.Simple/**/*.csproj"
+    |> MSBuildRelease simpleBuildDir "Build"
+    |> Log "AppBuild-Output: "
 )
 
 Target "UnitTests" (fun _ ->
