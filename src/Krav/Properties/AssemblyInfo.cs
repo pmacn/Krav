@@ -1,14 +1,6 @@
 ﻿using System.Resources;
 using System.Reflection;
 
-#if DEBUG
-[assembly: AssemblyProduct("Krav (Debug)")]
-[assembly: AssemblyConfiguration("Debug")]
-#else
-[assembly: AssemblyProduct("Krav (Release)")]
-[assembly: AssemblyConfiguration("Release")]
-#endif
-
 [assembly: AssemblyTitle("Krav")]
 [assembly: AssemblyDescription("Readable pre-conditions")]
 [assembly: AssemblyCompany("Peter MacNaughton")]
