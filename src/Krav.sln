@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\CONTRIBUTING.md = ..\CONTRIBUTING.md
 		Krav\Krav.nuspec = Krav\Krav.nuspec
 		..\README.md = ..\README.md
-		RequireThat\RequireThat.nuspec = RequireThat\RequireThat.nuspec
+		..\Template.nuspec = ..\Template.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Simple", "Krav.Simple\Krav.Simple.csproj", "{B52F3805-E3D8-40FD-8618-E9D5ACA7C462}"

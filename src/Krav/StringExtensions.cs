@@ -23,7 +23,7 @@ namespace Krav
         /// </summary>
         /// <param name="source">The string</param>
         /// <param name="predicate">The predicate</param>
-        /// <returns>true if any of the characters in string satisfy the predicate; otherwise false</returns>
+        /// <returns>true if any of the characters in the string satisfies the predicate; otherwise false</returns>
         public static bool Any(this string source, Func<char, bool> predicate)
         {
             foreach (var c in source)

@@ -1,47 +1,57 @@
 #r "tools/FAKE/tools/FakeLib.dll"
 open Fake
+open System
 open Fake.AssemblyInfoFile
 
 RestorePackages()
 
-// Properties
+type project = { name: string; description: string; version: string; }
+
+// Settings
 let version = "1.1.0"
-let buildDir = "./build/"
-let mainBuildDir = buildDir + "Krav/"
-let simpleBuildDir = buildDir + "Krav.Simple/"
-let testResultsDir = "./testresults/"
+let projects = [ { name = "Krav"
+                   description = "Readable preconditions"
+                   version = "0.1.0" }
+                 { name = "Krav.Simple"
+                   description = "Readable and snappy preconditions"
+                   version = "0.1.0" } ]
+
 let buildMode = getBuildParamOrDefault "buildMode" "Release"
+
+// Directories
+let buildDirFor project = sprintf "./build/%s/" project.name
+let testResultsDir = "./testresults/"
+let distDirFor project = sprintf "./dist/%s/" project.name
+let assemblyInfoPathFor project = sprintf "./src/%s/Properties/AssemblyInfo.cs" project.name
+let targetFramework = "portable-net4+sl5+wp8+windows8/"
 
 // Targets
 Target "Clean" (fun _ ->
-    CleanDirs [ buildDir
-                testResultsDir ]
+  let clean project =
+    CleanDirs [ buildDirFor project
+                distDirFor project
+                distDirFor project @@ "/lib/" @@ targetFramework ]
+
+  CleanDirs [ testResultsDir ]
+  projects |> Seq.iter clean
 )
 
-Target "BuildMain" (fun _ ->
-  CreateCSharpAssemblyInfo "./src/Krav/Properties/AssemblyInfo.cs"
-    [ Attribute.Title "Krav"
-      Attribute.Description "Readable preconditions"
-      Attribute.Product "Krav"
-      Attribute.Version version
-      Attribute.FileVersion version ]
+Target "Build" (fun _ ->
+  let build project =
+    let buildFolder = buildDirFor project
+    CreateCSharpAssemblyInfo (assemblyInfoPathFor project)
+      [ Attribute.Title project.name
+        Attribute.Description project.description
+        Attribute.Product project.name
+        Attribute.Version project.version
+        Attribute.FileVersion project.version ]
 
-  !! "src/Krav/**/*.csproj"
-    |> MSBuildRelease mainBuildDir "Build"
+    !! (sprintf "./src/%s/**/*.csproj" project.name)
+    |> MSBuildRelease buildFolder "Build"
     |> Log "AppBuild-Output: "
-)
 
-Target "BuildSimple" (fun _ ->
-  CreateCSharpAssemblyInfo "./src/Krav.Simple/Properties/AssemblyInfo.cs"
-    [ Attribute.Title "Krav.Simple"
-      Attribute.Description "Snappy and readable preconditions"
-      Attribute.Product "Krav.Simple"
-      Attribute.Version version
-      Attribute.FileVersion version ]
-
-  !! "src/Krav.Simple/**/*.csproj"
-    |> MSBuildRelease simpleBuildDir "Build"
-    |> Log "AppBuild-Output: "
+  projects
+  |> Seq.iter build
 )
 
 Target "UnitTests" (fun _ ->
@@ -52,13 +62,33 @@ Target "UnitTests" (fun _ ->
                OutputDir = testResultsDir })
 )
 
+Target "Package" (fun _ ->
+  let package project =
+    let buildDir = buildDirFor project
+    let distDir = distDirFor project
+    !! (buildDir @@ "*.dll") ++ (buildDir @@ "*.xml")
+      |> Copy (distDir @@ "/lib/" @@ targetFramework)
+
+    NuGet (fun p ->
+      {p with
+        WorkingDir = distDir
+        OutputPath = distDir
+        Project = project.name
+        Description = project.description
+        Publish = false
+        Version = project.version }) "Template.nuspec"
+
+  projects 
+  |> Seq.iter package
+)
+
 Target "Default" DoNothing
 
 // Dependencies
 "Clean"
-  ==> "BuildMain"
-  ==> "BuildSimple"
+  ==> "Build"
   ==> "UnitTests"
+  ==> "Package"
   ==> "Default"
 
 // Start
