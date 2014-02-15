@@ -3,6 +3,9 @@ using System.Diagnostics;
 
 namespace RequireThat
 {
+    /// <summary>
+    ///   Requirements for <see cref="T:RequireThat.Argument&lt;System.Nullable&gt;"/>
+    /// </summary>
     public static class NullableArgumentExtensions
     {
         /// <summary>
@@ -10,13 +13,9 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentNullException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T?> IsNotNull<T>(this Argument<T?> argument)
             where T : struct

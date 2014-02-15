@@ -4,19 +4,18 @@ using System.Diagnostics;
 
 namespace RequireThat
 {
+    /// <summary>
+    ///   Requirements for <see cref="T:RequireThat.Argument"/>s of <see cref="T:System.Guid"/>
+    /// </summary>
     public static class GuidArgumentExtensions
     {
         /// <summary>
         ///   Requires that the <paramref name="argument"/> is not the Empty Guid. Throws an exception
         ///   if the requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<Guid> IsNotEmpty(this Argument<Guid> argument)
         {
@@ -27,14 +26,10 @@ namespace RequireThat
         ///   Requires that the <paramref name="argument"/> is not the Empty Guid. Throws an exception
         ///   with the specified <paramref name="message"/> if the requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <param name="message">Message to use in the <seealso cref="ArgumentException"/>.</param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <param name="message">Exception message to use if the requirement fails.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<Guid> IsNotEmpty(this Argument<Guid> argument, string message)
         {

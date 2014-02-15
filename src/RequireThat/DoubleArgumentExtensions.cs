@@ -4,19 +4,18 @@ using System.Diagnostics;
 
 namespace RequireThat
 {
+    /// <summary>
+    ///   Requirements for <see cref="T:RequireThat.Argument"/>s of <see cref="T:System.Double"/>
+    /// </summary>
     public static class DoubleArgumentExtensions
     {
         /// <summary>
         ///   Requires that the double argument is a valid number. An exception is thrown if the
         ///   requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<double> IsANumber(this Argument<double> argument)
         {

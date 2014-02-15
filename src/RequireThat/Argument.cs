@@ -1,10 +1,14 @@
-using RequireThat.Resources;
+﻿using RequireThat.Resources;
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace RequireThat
 {
+    /// <summary>
+    /// An argument that can be verified to satisfy specific requirements.
+    /// </summary>
+    /// <typeparam name="T">The <see cref="T:System.Type"/> of the argument</typeparam>
     public class Argument<T>
     {
         internal readonly T Value;
@@ -56,12 +60,12 @@ namespace RequireThat
         }
 
         /// <summary>
-        ///   Requires that the argument is of type <typeparamref name="T"/> or a derived type. Throws
-        ///   an exception if there requirement is not met.
+        ///   Requires that the argument is of type <typeparamref name="TExpected"/> or a derived type. Throws
+        ///   an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="TExpected">The expected type</typeparam>
-        /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public Argument<T> IsOfType<TExpected>()
         {
@@ -69,12 +73,13 @@ namespace RequireThat
         }
 
         /// <summary>
-        ///   Requires that the argument is of type <typeparamref name="T"/> or a derived type. Throws
-        ///   an exception if there requirement is not met.
+        ///   Requires that the argument is of type <typeparamref name="TExpected"/> or a derived type. Throws
+        ///   an exception with the specified <paramref name="message"/> if there requirement is not met.
         /// </summary>
         /// <typeparam name="TExpected">The expected type</typeparam>
-        /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="message">Exception message to use if the requirement is not met.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public Argument<T> IsOfType<TExpected>(string message)
         {
@@ -86,8 +91,8 @@ namespace RequireThat
         ///   Throws an exception if there requirement is not met.
         /// </summary>
         /// <param name="expectedType">The expected type.</param>
-        /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public Argument<T> IsOfType(Type expectedType)
         {
@@ -95,12 +100,13 @@ namespace RequireThat
         }
 
         /// <summary>
-        ///   Requires that the argument is of the <paramref name="expectedType"/> or a derived type.
-        ///   Throws an exception if there requirement is not met.
+        ///   Requires that the argument is of the <paramref name="expectedType"/> or a derived type. Throws
+        ///   an exception with the specified <paramref name="message"/> if there requirement is not met.
         /// </summary>
         /// <param name="expectedType">The expected type.</param>
-        /// <returns>The calling <paramref name="RequireThat.Argument"/></returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="message">Exception message to use if the requirement is not met.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public Argument<T> IsOfType(Type expectedType, string message)
         {

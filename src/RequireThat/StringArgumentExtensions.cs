@@ -4,19 +4,19 @@ using System.Diagnostics;
 
 namespace RequireThat
 {
+    /// <summary>
+    ///   Requirements for <see cref="T:RequireThat.Argument"/>s of <see cref="T:System.String"/>
+    /// </summary>
     public static class StringArgumentExtensions
     {
         /// <summary>
         ///   Requires that the string <paramref name="argument"/> is not null or empty.
         ///   Throws an exception if the requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
@@ -27,16 +27,11 @@ namespace RequireThat
         ///   Requires that the string <paramref name="argument"/> is not null or empty. Throws an
         ///   exception with the specified <paramref name="message"/> if the requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <param name="message">
-        ///   Message to use in the <seealso cref="ArgumentException"/>.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <param name="message">Exception message to use if the requirement fails.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument, string message)
         {
@@ -53,13 +48,10 @@ namespace RequireThat
         ///   Requires that the string <paramref name="argument"/> is not null, empty or only consisting
         ///   of white-space characters. Throws an exception if the requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {
@@ -71,16 +63,11 @@ namespace RequireThat
         ///   of white-space characters. Throws an exception with the specified <paramref name="message"/>
         ///   if the requirement is not met.
         /// </summary>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
-        /// <param name="message">
-        ///   Message to use in the <seealso cref="ArgumentException"/>.
-        /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
+        /// <param name="message">Exception message to use if the requirement fails.</param>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument, string message)
         {

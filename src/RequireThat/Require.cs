@@ -3,6 +3,9 @@ using System.Diagnostics;
 
 namespace RequireThat
 {
+    /// <summary>
+    /// Access point for creating <see cref="T:RequireThat.Argument"/>s
+    /// </summary>
     public static class Require
     {
         /// <summary>
@@ -10,8 +13,8 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <param name="statement">The statement to validate</param>
-        /// <param name="message">The exception message to use if the requirement fails.</param>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <param name="message">Exception message to use if the requirement fails.</param>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static void That(bool statement, string message)
         {
@@ -20,7 +23,7 @@ namespace RequireThat
         }
 
         /// <summary>
-        ///   Creates an <seealso cref="RequireThat.Argument"/> with the provided value.
+        ///   Creates an <see cref="T:RequireThat.Argument"/> with the provided value.
         /// </summary>
         /// <typeparam name="T">The type of the argument.</typeparam>
         /// <param name="value">The value of the argument.</param>
@@ -32,12 +35,12 @@ namespace RequireThat
         }
 
         /// <summary>
-        ///   Creates an <seealso cref="RequireThat.Argument"/> with the provided value and name.
+        ///   Creates an <see cref="T:RequireThat.Argument"/> with the provided value and name.
         /// </summary>
         /// <typeparam name="T">The type of the argument.</typeparam>
         /// <param name="value">The value of the argument.</param>
         /// <param name="name">The name of the argument.</param>
-        /// <returns>An argument with the specified value.</returns>
+        /// <returns>An <see cref="T:RequireThat.Argument"/> with the specified value and name.</returns>
         [DebuggerStepThrough]
         public static Argument<T> That<T>(T value, string name)
         {
@@ -45,7 +48,7 @@ namespace RequireThat
         }
 
         /// <summary>
-        ///   Creates an <seealso cref="RequireThat.Argument"/> from the provided lambda expression.
+        ///   Creates an <see cref="T:RequireThat.Argument"/> from the provided lambda expression.
         /// </summary>
         /// <remarks>
         ///   This function has a significantly larger cost than the non-lamda version, see Performance
@@ -53,11 +56,13 @@ namespace RequireThat
         /// </remarks>
         /// <typeparam name="T">The type of the argument.</typeparam>
         /// <param name="expression">The lamba expression that gives the argument.</param>
-        /// <returns>An argument with the specified value.</returns>
+        /// <returns>
+        ///   An <see cref="T:RequireThat.Argument"/> with the value and name of the variable in the expression.
+        /// </returns>
         [DebuggerStepThrough]
-        public static Argument<T> That<T>(Func<T> function)
+        public static Argument<T> That<T>(Func<T> expression)
         {
-            return new Argument<T>(function);
+            return new Argument<T>(expression);
         }
     }
 }

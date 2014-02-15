@@ -4,6 +4,9 @@ using System.Diagnostics;
 
 namespace RequireThat
 {
+    /// <summary>
+    /// Requirements for <see cref="T:RequireThat.Argument"/>s of <see cref="T:System.IComparable"/>
+    /// </summary>
     public static class ComparableArgumentExtensions
     {
         /// <summary>
@@ -11,16 +14,12 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
-        ///   The limit that the <paramref name="argument"/> must be less than.
+        ///   The limit that <paramref name="argument"/> must be less than.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThan<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -33,16 +32,12 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
         ///   The limit that the <paramref name="argument"/> must be less than.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThan<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -68,16 +63,12 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
         ///   The limit that the <paramref name="argument"/> must be less than or equal to.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -90,16 +81,12 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
         ///   The limit that the <paramref name="argument"/> must be less than or equal to.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -125,16 +112,12 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
         ///   The limit that the <paramref name="argument"/> must be greater than.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -147,16 +130,12 @@ namespace RequireThat
         ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
         ///   The limit that the <paramref name="argument"/> must be greater than.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -182,16 +161,12 @@ namespace RequireThat
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">
-        ///   The <seealso cref="RequireThat.Argument"/> to add the requirement to.
-        /// </param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">
         ///   The limit that the <paramref name="argument"/> must be greater than or equal to.
         /// </param>
-        /// <returns>
-        ///   The <seealso cref="RequireThat.Argument"/> that the extension was called on.
-        /// </returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -204,10 +179,10 @@ namespace RequireThat
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="limit">The limit that the <paramref name="argument"/> must be greater than or equal to.</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -229,15 +204,16 @@ namespace RequireThat
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> falls with in the range specified by <paramref name="min"/> and <paramref name="max"/>, inclusive.
+        /// Requires that the <paramref name="argument"/> falls with in the range specified by
+        /// <paramref name="min"/> and <paramref name="max"/>, inclusive.
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="min">The minimum value of the range.</param>
         /// <param name="max">The maximum value of the range</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsInRange<T>(this Argument<T> argument, object min, object max)
             where T: IComparable
@@ -262,11 +238,11 @@ namespace RequireThat
         /// Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <seealso cref="RequireThat.Argument"/> to add the requirement to.</param>
+        /// <param name="argument">The <see cref="T:RequireThat.Argument"/> to verify.</param>
         /// <param name="min">The minimum value of the range.</param>
         /// <param name="max">The maximum value of the range</param>
-        /// <returns>The <seealso cref="RequireThat.Argument"/> that the extension was called on.</returns>
-        /// <exception cref="ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <returns>The verified <see cref="T:RequireThat.Argument"/>.</returns>
+        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsInRange<T>(this Argument<T> argument, T min, T max)
             where T : IComparable<T>
