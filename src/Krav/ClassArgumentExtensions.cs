@@ -1,5 +1,5 @@
+using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -20,7 +20,7 @@ namespace Krav
         public static Argument<T> IsNotNull<T>(this Argument<T> argument)
             where T : class
         {
-            return argument.IsNotNull(ExceptionMessages.WasNull);
+            return argument.IsNotNull(ExceptionMessages.Current.WasNull);
         }
 
         /// <summary>

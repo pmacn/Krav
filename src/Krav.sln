@@ -20,13 +20,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Simple", "Krav.Simple\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav", "Krav\Krav.csproj", "{84C64FBF-A7D0-4057-B437-762A646457A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Resources", "Krav.Resources\Krav.Resources.csproj", "{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Tests", "Tests\Krav.Tests\Krav.Tests.csproj", "{B819F092-F369-4819-AD2F-E5DABE1A0D92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Simple.Tests", "Tests\Krav.Simple.Tests\Krav.Simple.Tests.csproj", "{15BDBB0E-8296-41F6-82FA-1735F7FE347E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.PerformanceTests", "Tests\Krav.PerformanceTests\Krav.PerformanceTests.csproj", "{EB20D39B-1DA3-427F-96EC-3187B5A337E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Messages", "Krav.Messages\Krav.Messages.csproj", "{16D45D94-6662-4845-BDD6-5B2D936D4193}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,12 +47,6 @@ Global
 		{84C64FBF-A7D0-4057-B437-762A646457A2}.Deploy|Any CPU.Build.0 = Debug|Any CPU
 		{84C64FBF-A7D0-4057-B437-762A646457A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84C64FBF-A7D0-4057-B437-762A646457A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
-		{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}.Deploy|Any CPU.Build.0 = Debug|Any CPU
-		{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92}.Deploy|Any CPU.ActiveCfg = Deploy|Any CPU
@@ -71,6 +65,12 @@ Global
 		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Deploy|Any CPU.Build.0 = Debug|Any CPU
 		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB20D39B-1DA3-427F-96EC-3187B5A337E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D45D94-6662-4845-BDD6-5B2D936D4193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D45D94-6662-4845-BDD6-5B2D936D4193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D45D94-6662-4845-BDD6-5B2D936D4193}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D45D94-6662-4845-BDD6-5B2D936D4193}.Deploy|Any CPU.Build.0 = Debug|Any CPU
+		{16D45D94-6662-4845-BDD6-5B2D936D4193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D45D94-6662-4845-BDD6-5B2D936D4193}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

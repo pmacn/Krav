@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -32,7 +31,7 @@ namespace Krav
             where T : class
         {
             if (value == null)
-                throw new ArgumentNullException(name, ExceptionMessages.WasNull);
+                throw new ArgumentNullException(name, ExceptionMessages.Current.WasNull);
         }
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace Krav
             where T : struct
         {
             if (value == null || !value.HasValue)
-                throw new ArgumentNullException(name, ExceptionMessages.WasNull);
+                throw new ArgumentNullException(name, ExceptionMessages.Current.WasNull);
         }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace Krav
         {
             NotNull(value, name);
             if (value.Length == 0)
-                throw new ArgumentException(ExceptionMessages.WasNullOrEmpty, name);
+                throw new ArgumentException(ExceptionMessages.Current.WasNullOrEmpty, name);
         }
 
         /// <summary>
@@ -77,7 +76,7 @@ namespace Krav
         {
             NotNull(value, name);
             if (!value.GetEnumerator().MoveNext())
-                throw new ArgumentException(ExceptionMessages.EmptyCollection, name);
+                throw new ArgumentException(ExceptionMessages.Current.EmptyCollection, name);
         }
 
         /// <summary>
@@ -96,7 +95,7 @@ namespace Krav
             {
                 if (enumerator.Current == null)
                 {
-                    throw new ArgumentException(ExceptionMessages.ContainedNull, name);
+                    throw new ArgumentException(ExceptionMessages.Current.ContainedNull, name);
                 }
             }
         }
@@ -114,7 +113,7 @@ namespace Krav
         {
             NotNullOrEmpty(value, name);
             if (value.Any(Char.IsWhiteSpace))
-                throw new ArgumentException(ExceptionMessages.WasNullOrWhiteSpace, name);
+                throw new ArgumentException(ExceptionMessages.Current.WasNullOrWhiteSpace, name);
         }
 
         /// <summary>
@@ -127,10 +126,9 @@ namespace Krav
         public static void IsNumber(double value, string name)
         {
             if (Double.IsNaN(value))
-                throw new ArgumentException(ExceptionMessages.IsNotANumber, name);
+                throw new ArgumentException(ExceptionMessages.Current.IsNotANumber, name);
         }
-
-
+        
         /// <summary>
         ///   Requires that <paramref name="value"/> is a number.
         ///   Throws an exception if the requirement is not met.
@@ -141,7 +139,7 @@ namespace Krav
         public static void IsNumber(float value, string name)
         {
             if (Single.IsNaN(value))
-                throw new ArgumentException(ExceptionMessages.IsNotANumber, name);
+                throw new ArgumentException(ExceptionMessages.Current.IsNotANumber, name);
         }
 
         /// <summary>
@@ -170,7 +168,7 @@ namespace Krav
             var actualType = value.GetType();
             if (!expectedType.IsAssignableFrom(actualType))
                 throw new ArgumentException(
-                    ExceptionMessages.NotOfType.Inject(expectedType.FullName, actualType.FullName),
+                    ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName),
                     name);
         }
     }

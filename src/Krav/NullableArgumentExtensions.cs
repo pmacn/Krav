@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -21,7 +20,7 @@ namespace Krav
             where T : struct
         {
             if (argument.Value == null || !argument.Value.HasValue)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.WasNull);
+                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNull);
 
             return argument;
         }

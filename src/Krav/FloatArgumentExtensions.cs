@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -21,7 +20,7 @@ namespace Krav
         {
             if (Single.IsNaN(argument.Value))
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.IsNotANumber);
+                    ExceptionMessages.Current.IsNotANumber);
 
             return argument;
         }

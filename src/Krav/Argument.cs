@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -114,7 +113,7 @@ namespace Krav
             var actualType = Value == null ? typeof(T) : Value.GetType();
 
             if (!expectedType.IsAssignableFrom(actualType))
-                throw ExceptionFactory.CreateArgumentException(this, message ?? ExceptionMessages.NotOfType.Inject(expectedType.FullName, actualType.FullName));
+                throw ExceptionFactory.CreateArgumentException(this, message ?? ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName));
 
             return this;
         }

@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -20,7 +19,7 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
-            return argument.IsNotNullOrEmpty(ExceptionMessages.WasNullOrEmpty);
+            return argument.IsNotNullOrEmpty(ExceptionMessages.Current.WasNullOrEmpty);
         }
 
         /// <summary>
@@ -55,7 +54,7 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {
-            return argument.IsNotNullOrWhiteSpace(ExceptionMessages.WasNullOrWhiteSpace);
+            return argument.IsNotNullOrWhiteSpace(ExceptionMessages.Current.WasNullOrWhiteSpace);
         }
 
         /// <summary>

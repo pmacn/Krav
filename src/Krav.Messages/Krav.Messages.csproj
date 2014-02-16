@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2469F555-4CB9-40D1-9C70-10C5CCA2FB6A}</ProjectGuid>
+    <ProjectGuid>{16D45D94-6662-4845-BDD6-5B2D936D4193}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Krav.Resources</RootNamespace>
-    <AssemblyName>Krav.Resources</AssemblyName>
+    <RootNamespace>Krav.Messages</RootNamespace>
+    <AssemblyName>Krav.Messages</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile136</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -34,19 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <EmbeddedResource Include="ExceptionMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ExceptionMessages.Designer.cs">
-      <DependentUpon>ExceptionMessages.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

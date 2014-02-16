@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -19,7 +18,7 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<Guid> IsNotEmpty(this Argument<Guid> argument)
         {
-            return argument.IsNotEmpty(ExceptionMessages.EmptyGuid);
+            return argument.IsNotEmpty(ExceptionMessages.Current.EmptyGuid);
         }
 
         /// <summary>

@@ -56,9 +56,9 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Krav.Resources\Krav.Resources.csproj">
-      <Project>{2469f555-4cb9-40d1-9c70-10c5cca2fb6a}</Project>
-      <Name>Krav.Resources</Name>
+    <ProjectReference Include="..\Krav.Messages\Krav.Messages.csproj">
+      <Project>{16d45d94-6662-4845-bdd6-5b2d936d4193}</Project>
+      <Name>Krav.Messages</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

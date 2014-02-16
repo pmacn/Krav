@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -51,11 +50,11 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotLessThan_WasNull.Inject(limit));
+                    ExceptionMessages.Current.NotLessThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) >= 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotLessThan.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotLessThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -102,11 +101,11 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(limit));
+                    ExceptionMessages.Current.NotLessThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) > 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotLessThanOrEqualTo.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotLessThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -153,11 +152,11 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotGreaterThan_WasNull.Inject(limit));
+                    ExceptionMessages.Current.NotGreaterThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) <= 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotGreaterThan.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotGreaterThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -201,11 +200,11 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotGreaterThanOrEqualTo_WasNull.Inject(limit));
+                    ExceptionMessages.Current.NotGreaterThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) < 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotGreaterThanOrEqualTo.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotGreaterThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -229,15 +228,15 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotInRange_WasNull.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooLow.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
         }
@@ -260,15 +259,15 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotInRange_WasNull.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooLow.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
         }
@@ -287,7 +286,7 @@ namespace Krav
             {
                 throw ExceptionFactory.CreateArgumentException(
                     argument,
-                    ExceptionMessages.IncomparableTypes.Inject(
+                    ExceptionMessages.Current.IncomparableTypes.Inject(
                         argument.GetType().FullName,
                         comparisonValue.GetType().FullName));
             }

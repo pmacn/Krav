@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -22,7 +21,7 @@ namespace Krav
         public static Argument<T> IsNotEmpty<T>(this Argument<T> argument)
             where T : IEnumerable
         {
-            return argument.IsNotEmpty(ExceptionMessages.EmptyCollection);
+            return argument.IsNotEmpty(ExceptionMessages.Current.EmptyCollection);
         }
 
         /// <summary>
@@ -62,14 +61,14 @@ namespace Krav
             where T : IEnumerable
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.WasNull);
+                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNull);
 
             var enumerator = argument.Value.GetEnumerator();
             while (enumerator.MoveNext())
             {
                 if (enumerator.Current == null)
                 {
-                    throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.ContainedNull);
+                    throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.ContainedNull);
                 }
             }
 

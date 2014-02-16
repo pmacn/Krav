@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -48,11 +47,11 @@ namespace Krav
         {
             if (argument.Value == null)
                 throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.IsNotExpectedType_WasNull.Inject(expectedType.FullName));
+                    ExceptionMessages.Current.IsNotExpectedType_WasNull.Inject(expectedType.FullName));
 
             if (!expectedType.IsAssignableFrom(argument.Value))
                 throw ExceptionFactory.CreateArgumentException(argument,
-                    ExceptionMessages.IsNotExpectedType.Inject(expectedType.FullName, argument.Value.FullName));
+                    ExceptionMessages.Current.IsNotExpectedType.Inject(expectedType.FullName, argument.Value.FullName));
 
             return argument;
         }
