@@ -87,8 +87,8 @@ Target "Default" DoNothing
 "Clean"
   ==> "Build"
   ==> "UnitTests"
-  ==> "Package"
   ==> "Default"
+  ==> "Package"
 
 // Start
 RunTargetOrDefault "Default"
