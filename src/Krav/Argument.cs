@@ -9,6 +9,7 @@ namespace Krav
     /// An argument that can be verified to satisfy specific requirements.
     /// </summary>
     /// <typeparam name="T">The <see cref="T:System.Type"/> of the argument</typeparam>
+    [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public class Argument<T>
     {
         internal readonly T Value;
@@ -116,6 +117,14 @@ namespace Krav
                 throw ExceptionFactory.CreateArgumentException(this, message ?? ExceptionMessages.NotOfType.Inject(expectedType.FullName, actualType.FullName));
 
             return this;
+        }
+
+        private string DebuggerDisplay
+        {
+            get
+            {
+                return String.Format("Argument<{0}>: Value: {1}; Name: {2}", typeof(T).Name, Value, Name);
+            }
         }
     }
 }
