@@ -8,13 +8,12 @@ RestorePackages()
 type project = { name: string; description: string; version: string; }
 
 // Settings
-let version = "1.1.0"
 let projects = [ { name = "Krav"
                    description = "Readable preconditions"
-                   version = "0.1.0" }
+                   version = "0.1.1" }
                  { name = "Krav.Simple"
                    description = "Readable and snappy preconditions"
-                   version = "0.1.0" } ]
+                   version = "0.1.1" } ]
 
 let buildMode = getBuildParamOrDefault "buildMode" "Release"
 
