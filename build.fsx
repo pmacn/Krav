@@ -5,8 +5,8 @@ RestorePackages()
 
 // Properties
 let buildDir = "./build/"
-let mainBuildDir = buildDir + "RequireThat/"
-let simpleBuildDir = buildDir + "RequireThat.Simple/"
+let mainBuildDir = buildDir + "Krav/"
+let simpleBuildDir = buildDir + "Krav.Simple/"
 let testResultsDir = "./testresults/"
 let buildMode = getBuildParamOrDefault "buildMode" "Release"
 
@@ -17,19 +17,19 @@ Target "Clean" (fun _ ->
 )
 
 Target "BuildMain" (fun _ ->
-    !! "src/RequireThat/**/*.csproj"
+    !! "src/Krav/**/*.csproj"
       |> MSBuildRelease mainBuildDir "Build"
       |> Log "AppBuild-Output: "
 )
 
 Target "BuildSimple" (fun _ ->
-    !! "src/RequireThat.Simple/**/*.csproj"
+    !! "src/Krav.Simple/**/*.csproj"
       |> MSBuildRelease simpleBuildDir "Build"
       |> Log "AppBuild-Output: "
 )
 
 Target "UnitTests" (fun _ ->
-    !! (sprintf "src/Tests/RequireThat.Tests/bin/%s/**/RequireThat.Tests*.dll" buildMode)
+    !! (sprintf "src/Tests/Krav.Tests/bin/%s/**/Krav.Tests*.dll" buildMode)
     |> xUnit (fun p -> 
             {p with 
                Verbose = false
