@@ -54,17 +54,6 @@ namespace Krav.Tests
             }
             
             [Fact]
-            public void WhenNotOfTypeWithMessage_ExceptionHasCustomMessage()
-            {
-                var message = "This type was unexpected";
-
-                var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(unexpectedArgument, ParameterName).IsOfType<ExpectedType>(message));
-
-                Assert.Contains(message, ex.Message);
-            }
-
-            [Fact]
             public void WhenOfType_DoesNotThrow()
             {
                 Assert.DoesNotThrow(

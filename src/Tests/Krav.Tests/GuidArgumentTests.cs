@@ -19,17 +19,6 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenEmptyWithMessage_ThrowsExceptionWithMessage()
-            {
-                var message = "It's the empty guid!";
-
-                var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(Guid.Empty, ParameterName).IsNotEmpty(message));
-
-                Assert.Contains(message, ex.Message);
-            }
-
-            [Fact]
             public void WhenNotEmpty_ReturnsArgument()
             {
                 var requireThatGuid = Require.That(Guid.NewGuid(), ParameterName);

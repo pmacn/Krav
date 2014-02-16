@@ -21,29 +21,12 @@ namespace Krav
         public static Argument<T> IsNotEmpty<T>(this Argument<T> argument)
             where T : IEnumerable
         {
-            return argument.IsNotEmpty(ExceptionMessages.Current.EmptyCollection);
-        }
-
-        /// <summary>
-        ///   Requires that the <paramref name="argument"/> is not empty. Throws an exception with the
-        ///   specified <paramref name="message"/> if the requirement is not met.
-        /// </summary>
-        /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
-        /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
-        /// <param name="message">Exception message to use if the requirement fails.</param>
-        /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
-        [DebuggerStepThrough]
-        public static Argument<T> IsNotEmpty<T>(this Argument<T> argument, string message)
-            where T : IEnumerable
-        {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, message);
+                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.EmptyCollection);
 
             if (!argument.Value.GetEnumerator().MoveNext())
-                throw ExceptionFactory.CreateArgumentException(argument, message);
-            
+                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.EmptyCollection);
+
             return argument;
         }
 
