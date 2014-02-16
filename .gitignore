@@ -22,6 +22,9 @@ tools/FAKE
 #test results
 testresults/
 
+# dist
+dist/
+
 # deploy
 deploy/build
 deploy/builds
