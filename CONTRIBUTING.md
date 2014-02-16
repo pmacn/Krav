@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-So you want to contribute to Require.That. Great! Contributions take many forms from 
+So you want to contribute to Krav. Great! Contributions take many forms from 
 submitting issues, writing docs, to making code changes. We welcome it all.
 
 But first things first...
@@ -14,7 +14,7 @@ But first things first...
 * Fork the repository on GitHub by clicking on the "Clone in Windows" button or 
 run the following command in a git shell.
 ```
-git clone git@github.com:pmacn/Require.That.git Require.That
+git clone git@github.com:pmacn/Krav.git Krav
 ```
 * Make sure the project builds and all tests pass on your machine by running `build.bat`.
 
