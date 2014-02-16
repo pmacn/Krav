@@ -90,6 +90,32 @@ public class RequireThatTests
         }
     }
 
+    public class ContainsNoNull
+    {
+        [Fact]
+        public void WhenNull_ThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => RequireThat.DoesNotContainNull(null as IEnumerable, "name"));
+        }
+
+        [Fact]
+        public void WhenContainsNull_ThrowsException()
+        {
+            var enumerable = new [] { new object(), null, new object() };
+            Assert.Throws<ArgumentException>(
+                () => RequireThat.DoesNotContainNull(enumerable, "name"));
+        }
+
+        [Fact]
+        public void WhenContainsNoNull_DoesNotThrow()
+        {
+            var enumerable = new[] { new object(), new object() };
+            Assert.DoesNotThrow(
+                () => RequireThat.DoesNotContainNull(enumerable, "name"));
+        }
+    }
+
     public class NotNullOrWhitespace
     {
         [Fact]

@@ -61,6 +61,15 @@ namespace Krav.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The collection can not contain null values..
+        /// </summary>
+        public static string ContainedNull {
+            get {
+                return ResourceManager.GetString("ContainedNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empty collection is not allowed..
         /// </summary>
         public static string EmptyCollection {

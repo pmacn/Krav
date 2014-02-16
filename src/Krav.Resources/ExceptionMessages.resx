@@ -186,4 +186,7 @@
   <data name="IsNotANumber" xml:space="preserve">
     <value>Value is required to be a number but was Not a Number.</value>
   </data>
+  <data name="ContainedNull" xml:space="preserve">
+    <value>The collection can not contain null values.</value>
+  </data>
 </root>
