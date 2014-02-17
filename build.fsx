@@ -54,11 +54,14 @@ Target "Build" (fun _ ->
 )
 
 Target "UnitTests" (fun _ ->
-    !! (sprintf "src/Tests/Krav.Tests/bin/%s/**/Krav.Tests*.dll" buildMode)
-    |> xUnit (fun p -> 
-            {p with 
-               Verbose = false
-               OutputDir = testResultsDir })
+  let unitTest project =
+    !! (sprintf "src/Tests/%s.Tests/bin/%s/**/%s.Tests.dll" project.name buildMode project.name)
+    |> xUnit (fun p ->
+      {p with 
+        Verbose = false
+        OutputDir = testResultsDir })
+
+  projects |> Seq.iter unitTest
 )
 
 Target "Package" (fun _ ->
