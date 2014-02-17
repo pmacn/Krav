@@ -60,6 +60,7 @@
     <Compile Include="ArgumentTests.cs" />
     <Compile Include="ComparableArgumentTests.cs" />
     <Compile Include="DoubleArgumentTests.cs" />
+    <Compile Include="ExceptionMessagesTests.cs" />
     <Compile Include="FloatArgumentTests.cs" />
     <Compile Include="LambdaArgumentTests.cs" />
     <Compile Include="NullableArgumentTests.cs" />
@@ -75,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Krav.Messages\Krav.Messages.csproj">
+      <Project>{16d45d94-6662-4845-bdd6-5b2d936d4193}</Project>
+      <Name>Krav.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Krav.Simple\Krav.Simple.csproj">
       <Project>{b52f3805-e3d8-40fd-8618-e9d5aca7c462}</Project>
       <Name>Krav.Simple</Name>
