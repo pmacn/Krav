@@ -6,8 +6,8 @@ using System.Threading;
 namespace Krav.PerformanceTests
 {
     /// <summary>
-    /// This thing is a horrible mess but it's just meant to give an idea of performance
-    /// differences between lambda and non-lambda arguments
+    ///   This thing is a horrible mess but it's just meant to give an idea of performance
+    ///   differences between lambda and non-lambda arguments
     /// </summary>
     class Program
     {

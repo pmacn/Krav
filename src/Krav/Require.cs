@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace Krav
 {
     /// <summary>
-    /// Access point for creating <see cref="T:Krav.Argument"/>s
+    ///   Access point for creating <see cref="T:Krav.Argument"/>s
     /// </summary>
     public static class Require
     {

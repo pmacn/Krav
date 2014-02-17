@@ -5,7 +5,7 @@ using Krav.Resources;
 namespace Krav
 {
     /// <summary>
-    /// Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.IComparable"/>
+    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.IComparable"/>
     /// </summary>
     public static class ComparableArgumentExtensions
     {
@@ -157,8 +157,8 @@ namespace Krav
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is greater than or equal to <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is greater than or equal to <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
@@ -175,8 +175,8 @@ namespace Krav
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> is greater than or equal to <paramref name="limit"/>.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> is greater than or equal to <paramref name="limit"/>.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
@@ -204,9 +204,9 @@ namespace Krav
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> falls with in the range specified by
-        /// <paramref name="min"/> and <paramref name="max"/>, inclusive.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> falls with in the range specified by
+        ///   <paramref name="min"/> and <paramref name="max"/>, inclusive.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
@@ -234,8 +234,9 @@ namespace Krav
         }
 
         /// <summary>
-        /// Requires that the <paramref name="argument"/> falls with in the range specified by <paramref name="min"/> and <paramref name="max"/>, inclusive.
-        /// Throws an exception if the requirement is not met.
+        ///   Requires that the <paramref name="argument"/> falls with in the range specified by
+        ///   <paramref name="min"/> and <paramref name="max"/>, inclusive.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
