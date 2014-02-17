@@ -81,6 +81,27 @@ namespace Krav
         }
 
         /// <summary>
+        ///   Requires that <paramref name="value"/> is not null and contains no null values.
+        ///   Throws an exception if the requirement is not met.
+        /// </summary>
+        /// <param name="value">The value to verify.</param>
+        /// <param name="name">The name of the value.</param>
+        /// <exception cref="T:System.ArgumentException">Thrown if <paramref name="value"/> is empty.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+        public static void DoesNotContainNull(IEnumerable value, string name)
+        {
+            NotNull(value, name);
+            var enumerator = value.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                if (enumerator.Current == null)
+                {
+                    throw new ArgumentException(ExceptionMessages.ContainedNull, name);
+                }
+            }
+        }
+
+        /// <summary>
         ///   Requires that <paramref name="value"/> is not null, empty or only consisting of white-space
         ///   characters.
         ///   Throws an exception if the requirement is not met.
