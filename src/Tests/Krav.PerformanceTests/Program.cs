@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Krav;
 
 namespace Krav.PerformanceTests
 {

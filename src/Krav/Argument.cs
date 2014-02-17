@@ -1,7 +1,7 @@
-﻿using Krav.Resources;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Krav.Resources;
 
 namespace Krav
 {
