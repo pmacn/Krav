@@ -49,13 +49,13 @@ If a requirement method is not available for something you need you can always u
 This will throw an `ArgumentException` with the provided message if the statement evaluates to false.
 
 If there's a good case to be made for including the requirement that you
-need, you might also create an [issue](http://github.com/pmacn/Require.That/issues)
-and/or [pull request](https://github.com/pmacn/Require.That/pulls) to have
+need, you might also create an [issue](http://github.com/pmacn/Krav/issues)
+and/or [pull request](https://github.com/pmacn/Krav/pulls) to have
 it included.
 
 ## You mentioned performance tests?
 
-There's a `Krav.PerformanceTests` project that runs a number of iterations using each technique and displays the results. This is also the startup project for the solution so it will run as you run the solution in Visual Studio. Press ctrl+F5 to run without the debugger attached and you might see something like this.
+There's a `Krav.PerformanceTests` project that runs a number of iterations using each technique and displays the results.
 
     Non-lambda test results
     -----------------------
