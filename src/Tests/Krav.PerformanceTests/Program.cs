@@ -2,13 +2,12 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Krav;
 
 namespace Krav.PerformanceTests
 {
     /// <summary>
-    /// This thing is a horrible mess but it's just meant to give an idea of performance
-    /// differences between lambda and non-lambda arguments
+    ///   This thing is a horrible mess but it's just meant to give an idea of performance
+    ///   differences between lambda and non-lambda arguments
     /// </summary>
     class Program
     {

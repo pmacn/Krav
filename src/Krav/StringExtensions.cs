@@ -3,12 +3,12 @@ using System;
 namespace Krav
 {
     /// <summary>
-    /// Extension methods for <see cref="T:System.String"/>
+    ///   Extension methods for <see cref="T:System.String"/>
     /// </summary>
     public static class StringExtensions
     {
         /// <summary>
-        /// Injects the provided arguments into the string using <see cref="M:System.String.Format"/> rules.
+        ///   Injects the provided arguments into the string using <see cref="M:System.String.Format"/> rules.
         /// </summary>
         /// <param name="format">The string to inject arguments into</param>
         /// <param name="args">The arguments to inject.</param>
@@ -19,7 +19,7 @@ namespace Krav
         }
 
         /// <summary>
-        /// Implementation of Any for strings
+        ///   Implementation of Any for strings
         /// </summary>
         /// <param name="source">The string</param>
         /// <param name="predicate">The predicate</param>

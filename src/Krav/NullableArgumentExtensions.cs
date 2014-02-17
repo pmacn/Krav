@@ -1,5 +1,5 @@
-using Krav.Resources;
 using System.Diagnostics;
+using Krav.Resources;
 
 namespace Krav
 {

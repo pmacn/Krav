@@ -1,12 +1,12 @@
-﻿using Krav.Resources;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Krav.Resources;
 
 namespace Krav
 {
     /// <summary>
-    /// An argument that can be verified to satisfy specific requirements.
+    ///   An argument that can be verified to satisfy specific requirements.
     /// </summary>
     /// <typeparam name="T">The <see cref="T:System.Type"/> of the argument</typeparam>
     [DebuggerDisplay("{DebuggerDisplay,nq}")]

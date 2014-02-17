@@ -1,16 +1,16 @@
-﻿using Krav.Resources;
-using System;
+﻿using System;
 using System.Collections;
+using Krav.Resources;
 
 namespace Krav
 {
     /// <summary>
-    /// A set of requirement methods to use when verifying that arguments meet specific requirements.
+    ///   A set of requirement methods to use when verifying that arguments meet specific requirements.
     /// </summary>
     public static class RequireThat
     {
         /// <summary>
-        /// 
+        ///   Requires that <paramref name="condition"/> is true. Throws an exception if the requirement fails.
         /// </summary>
         /// <param name="condition">The condition to verify.</param>
         /// <param name="message">Exception message to use if the requirement fails.</param>
