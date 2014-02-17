@@ -21,7 +21,7 @@ namespace Krav
             where T : class
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNull);
+                throw ExceptionFactory.CreateNullException(argument);
 
             return argument;
         }

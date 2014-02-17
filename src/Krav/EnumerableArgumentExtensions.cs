@@ -22,7 +22,7 @@ namespace Krav
             where T : IEnumerable
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.EmptyCollection);
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (!argument.Value.GetEnumerator().MoveNext())
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.EmptyCollection);
@@ -44,7 +44,7 @@ namespace Krav
             where T : IEnumerable
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNull);
+                throw ExceptionFactory.CreateNullException(argument);
 
             var enumerator = argument.Value.GetEnumerator();
             while (enumerator.MoveNext())

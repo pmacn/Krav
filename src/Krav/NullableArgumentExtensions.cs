@@ -20,7 +20,7 @@ namespace Krav
             where T : struct
         {
             if (argument.Value == null || !argument.Value.HasValue)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNull);
+                throw ExceptionFactory.CreateNullException(argument);
 
             return argument;
         }

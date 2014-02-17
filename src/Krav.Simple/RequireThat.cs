@@ -61,7 +61,7 @@ namespace Krav
         {
             NotNull(value, name);
             if (value.Length == 0)
-                throw new ArgumentException(ExceptionMessages.Current.WasNullOrEmpty, name);
+                throw new ArgumentException(ExceptionMessages.Current.WasEmptyString, name);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Krav
         {
             NotNullOrEmpty(value, name);
             if (value.Any(Char.IsWhiteSpace))
-                throw new ArgumentException(ExceptionMessages.Current.WasNullOrWhiteSpace, name);
+                throw new ArgumentException(ExceptionMessages.Current.WasWhiteSpace, name);
         }
 
         /// <summary>

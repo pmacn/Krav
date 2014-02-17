@@ -49,9 +49,9 @@ namespace Krav
             get { return "Value can not be null."; }
         }
 
-        public virtual string WasNullOrWhiteSpace
+        public virtual string WasWhiteSpace
         {
-            get { return "The string can not be null, empty or consist of only white-space."; }
+            get { return "The string can not consist only of white-space."; }
         }
 
         public virtual string NotFalse
@@ -79,44 +79,14 @@ namespace Krav
             get { return "Value expected  to be less than or equal to '{0}', but was '{1}'."; }
         }
 
-        public virtual string WasNullOrEmpty
+        public virtual string WasEmptyString
         {
-            get { return "Value can not be null or empty."; }
+            get { return "Value can not be an empty string."; }
         }
 
         public virtual string IsNotExpectedType
         {
             get { return "Type value is expected to be '{0}', but was '{1}'."; }
-        }
-
-        public virtual string IsNotExpectedType_WasNull
-        {
-            get { return "Type value is expected to be '{0}', but was null."; }
-        }
-
-        public virtual string NotGreaterThan_WasNull
-        {
-            get { return "Value expected to be greater than '{0}', but was null."; }
-        }
-
-        public virtual string NotInRange_WasNull
-        {
-            get { return "Value expected to be in range '{0}' - '{1}', but was null."; }
-        }
-
-        public virtual string NotLessThanOrEqualTo_WasNull
-        {
-            get { return "Value expected to be less than or equal to '{0}', but was null."; }
-        }
-
-        public virtual string NotLessThan_WasNull
-        {
-            get { return "Value expected to be less than '{0}', but was null."; }
-        }
-
-        public virtual string NotGreaterThanOrEqualTo_WasNull
-        {
-            get { return "Value expected to be greater than or equal to '{0}', but was null."; }
         }
 
         public virtual string IncomparableTypes

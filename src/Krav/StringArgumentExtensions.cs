@@ -20,10 +20,10 @@ namespace Krav
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNullOrEmpty);
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.Value.Length == 0)
-                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasNullOrEmpty);
+                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasEmptyString);
 
             return argument;
         }
@@ -39,11 +39,9 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {
-            if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, ExceptionMessages.Current.WasNullOrWhiteSpace);
-
-            if (String.IsNullOrWhiteSpace(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasNullOrWhiteSpace);
+            argument.IsNotNullOrEmpty();
+            if (argument.Value.Any(Char.IsWhiteSpace))
+                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasWhiteSpace);
 
             return argument;
         }

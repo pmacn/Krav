@@ -9,9 +9,9 @@ namespace Krav
             return new ArgumentException(message, argument.Name);
         }
 
-        public static ArgumentNullException CreateNullException<T>(Argument<T> argument, string message)
+        public static ArgumentNullException CreateNullException<T>(Argument<T> argument)
         {
-            return new ArgumentNullException(argument.Name, message);
+            return new ArgumentNullException(argument.Name, ExceptionMessages.Current.WasNull);
         }
 
         internal static ArgumentOutOfRangeException OutOfRange<T>(Argument<T> argument, string message)
