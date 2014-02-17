@@ -281,7 +281,7 @@ namespace Krav
                         comparisonValue.GetType().FullName));
             }
 
-            throw new InvalidOperationException("This should not be possible, please report an issue at http://github.com/pmacn/Require.That with the code used get this exception.");
+            throw new InvalidOperationException("This should not be possible, please report an issue at http://github.com/pmacn/Krav with the code used get this exception.");
         }
     }
 }
