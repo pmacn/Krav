@@ -28,9 +28,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsGreater_ThrowsArgumentException()
+            public void WhenIsGreater_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.Fuji, ParameterName).IsLessThan(Apple.RedDelicious));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -44,7 +44,7 @@ namespace Krav.Tests
             }
         }
 
-        public class IsLessThanOrEqual
+        public class IsLessThanOrEqualTo
         {
             [Fact]
             public void WhenIsLessOrEqual_ReturnsArgument()
@@ -67,9 +67,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsGreater_ThrowsArgumentException()
+            public void WhenIsGreater_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.Fuji, ParameterName).IsLessThanOrEqualTo(Apple.RedDelicious));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -107,9 +107,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsLess_ThrowsArgumentException()
+            public void WhenIsLess_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.RedDelicious, ParameterName).IsGreaterThan(Apple.Fuji));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -150,9 +150,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsLess_ThrowsArgumentException()
+            public void WhenIsLess_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.RedDelicious, ParameterName).IsGreaterThanOrEqualTo(Apple.Fuji));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -167,6 +167,7 @@ namespace Krav.Tests
                 Assert.Equal(ParameterName, ex.ParamName);
             }
         }
+
 
         [Fact]
         public void CanCompareDifferentNumericTypes()
