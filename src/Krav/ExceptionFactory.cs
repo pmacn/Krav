@@ -13,5 +13,10 @@ namespace Krav
         {
             return new ArgumentNullException(argument.Name, message);
         }
+
+        internal static ArgumentOutOfRangeException OutOfRange<T>(Argument<T> argument, string message)
+        {
+            return new ArgumentOutOfRangeException(argument.Name, message);
+        }
     }
 }

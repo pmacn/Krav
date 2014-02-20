@@ -28,9 +28,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsGreater_ThrowsArgumentException()
+            public void WhenIsGreater_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.Fuji, ParameterName).IsLessThan(Apple.RedDelicious));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -44,7 +44,7 @@ namespace Krav.Tests
             }
         }
 
-        public class IsLessThanOrEqual
+        public class IsLessThanOrEqualTo
         {
             [Fact]
             public void WhenIsLessOrEqual_ReturnsArgument()
@@ -67,9 +67,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsGreater_ThrowsArgumentException()
+            public void WhenIsGreater_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.Fuji, ParameterName).IsLessThanOrEqualTo(Apple.RedDelicious));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -107,9 +107,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsLess_ThrowsArgumentException()
+            public void WhenIsLess_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.RedDelicious, ParameterName).IsGreaterThan(Apple.Fuji));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -150,9 +150,9 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenIsLess_ThrowsArgumentException()
+            public void WhenIsLess_ThrowsArgumentOutOfRangeException()
             {
-                var ex = Assert.Throws<ArgumentException>(
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
                     () => Require.That(Apple.RedDelicious, ParameterName).IsGreaterThanOrEqualTo(Apple.Fuji));
 
                 Assert.Equal(ParameterName, ex.ParamName);
@@ -163,6 +163,60 @@ namespace Krav.Tests
             {
                 var ex = Assert.Throws<ArgumentNullException>(
                     () => Require.That(null as Apple, ParameterName).IsGreaterThanOrEqualTo(Apple.RedDelicious));
+
+                Assert.Equal(ParameterName, ex.ParamName);
+            }
+        }
+
+        public class IsInRange
+        {
+            [Fact]
+            public void WhenInRange_ReturnsArgument()
+            {
+                var requireThatFive = Require.That(5, ParameterName);
+
+                var result = requireThatFive.IsInRange(1, 10);
+
+                Assert.Same(requireThatFive, result);
+            }
+
+            [Fact]
+            public void WhenOnLimit_ReturnsArgument()
+            {
+                var requireThatTen = Require.That(10, ParameterName);
+
+                var result = requireThatTen.IsInRange(1, 10);
+
+                Assert.Same(requireThatTen, result);
+            }
+
+            [Fact]
+            public void WhenLessThanMin_ThrowsArgumentOutOfRangeException()
+            {
+                var requireThatZero = Require.That(0, ParameterName);
+
+                Assert.Throws<ArgumentOutOfRangeException>(
+                    () => requireThatZero.IsInRange(1, 10));
+            }
+
+            [Fact]
+            public void WhenGreaterThanMax_ThrowsArgumentOutOfRangeException()
+            {
+                var requireThatEleven = Require.That(11, ParameterName);
+
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
+                    () => requireThatEleven.IsInRange(1, 10));
+
+                Assert.Equal(ParameterName, ex.ParamName);
+            }
+
+            [Fact]
+            public void WhenIncomparableTypes_ThrowsArgumentException()
+            {
+                var requireThatFive = Require.That(5, ParameterName);
+
+                var ex = Assert.Throws<ArgumentException>(
+                    () => requireThatFive.IsInRange("foo", "bar"));
 
                 Assert.Equal(ParameterName, ex.ParamName);
             }

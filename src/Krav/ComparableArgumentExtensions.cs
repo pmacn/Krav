@@ -19,7 +19,8 @@ namespace Krav
         ///   The limit that <paramref name="argument"/> must be less than.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThan<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -37,7 +38,8 @@ namespace Krav
         ///   The limit that the <paramref name="argument"/> must be less than.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThan<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -52,8 +54,8 @@ namespace Krav
                     ExceptionMessages.NotLessThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) >= 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
-                ExceptionMessages.NotLessThan.Inject(limit, argument.Value));
+                throw ExceptionFactory.OutOfRange(argument,
+                    ExceptionMessages.NotLessThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -68,7 +70,8 @@ namespace Krav
         ///   The limit that the <paramref name="argument"/> must be less than or equal to.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -86,7 +89,8 @@ namespace Krav
         ///   The limit that the <paramref name="argument"/> must be less than or equal to.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsLessThanOrEqualTo<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -101,7 +105,7 @@ namespace Krav
                     ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) > 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotLessThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
@@ -117,7 +121,8 @@ namespace Krav
         ///   The limit that the <paramref name="argument"/> must be greater than.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -135,7 +140,8 @@ namespace Krav
         ///   The limit that the <paramref name="argument"/> must be greater than.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThan<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -150,7 +156,7 @@ namespace Krav
                     ExceptionMessages.NotGreaterThan_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) <= 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotGreaterThan.Inject(limit, argument.Value));
 
             return argument;
@@ -166,7 +172,7 @@ namespace Krav
         ///   The limit that the <paramref name="argument"/> must be greater than or equal to.
         /// </param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, object limit)
             where T : IComparable
@@ -182,7 +188,8 @@ namespace Krav
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <param name="limit">The limit that the <paramref name="argument"/> must be greater than or equal to.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsGreaterThanOrEqualTo<T>(this Argument<T> argument, T limit)
             where T : IComparable<T>
@@ -197,7 +204,7 @@ namespace Krav
                     ExceptionMessages.NotGreaterThanOrEqualTo_WasNull.Inject(limit));
 
             if (argument.CompareValueTo(limit) < 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotGreaterThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
@@ -213,7 +220,9 @@ namespace Krav
         /// <param name="min">The minimum value of the range.</param>
         /// <param name="max">The maximum value of the range</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumetException">Thrown if the argument is not comparable to the range limits.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsInRange<T>(this Argument<T> argument, object min, object max)
             where T: IComparable
@@ -223,11 +232,11 @@ namespace Krav
                     ExceptionMessages.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
@@ -243,7 +252,8 @@ namespace Krav
         /// <param name="min">The minimum value of the range.</param>
         /// <param name="max">The maximum value of the range</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>
         [DebuggerStepThrough]
         public static Argument<T> IsInRange<T>(this Argument<T> argument, T min, T max)
             where T : IComparable<T>
@@ -253,11 +263,11 @@ namespace Krav
                     ExceptionMessages.NotInRange_WasNull.Inject(min, max));
 
             if (argument.CompareValueTo(min) < 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
-                throw ExceptionFactory.CreateArgumentException(argument,
+                throw ExceptionFactory.OutOfRange(argument,
                     ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
