@@ -168,6 +168,59 @@ namespace Krav.Tests
             }
         }
 
+        public class IsInRange
+        {
+            [Fact]
+            public void WhenInRange_ReturnsArgument()
+            {
+                var requireThatFive = Require.That(5, ParameterName);
+
+                var result = requireThatFive.IsInRange(1, 10);
+
+                Assert.Same(requireThatFive, result);
+            }
+
+            [Fact]
+            public void WhenOnLimit_ReturnsArgument()
+            {
+                var requireThatTen = Require.That(10, ParameterName);
+
+                var result = requireThatTen.IsInRange(1, 10);
+
+                Assert.Same(requireThatTen, result);
+            }
+
+            [Fact]
+            public void WhenLessThanMin_ThrowsArgumentOutOfRangeException()
+            {
+                var requireThatZero = Require.That(0, ParameterName);
+
+                Assert.Throws<ArgumentOutOfRangeException>(
+                    () => requireThatZero.IsInRange(1, 10));
+            }
+
+            [Fact]
+            public void WhenGreaterThanMax_ThrowsArgumentOutOfRangeException()
+            {
+                var requireThatEleven = Require.That(11, ParameterName);
+
+                var ex = Assert.Throws<ArgumentOutOfRangeException>(
+                    () => requireThatEleven.IsInRange(1, 10));
+
+                Assert.Equal(ParameterName, ex.ParamName);
+            }
+
+            [Fact]
+            public void WhenIncomparableTypes_ThrowsArgumentException()
+            {
+                var requireThatFive = Require.That(5, ParameterName);
+
+                var ex = Assert.Throws<ArgumentException>(
+                    () => requireThatFive.IsInRange("foo", "bar"));
+
+                Assert.Equal(ParameterName, ex.ParamName);
+            }
+        }
 
         [Fact]
         public void CanCompareDifferentNumericTypes()
