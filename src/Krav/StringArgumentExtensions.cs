@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -20,26 +19,11 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
-            return argument.IsNotNullOrEmpty(ExceptionMessages.WasNullOrEmpty);
-        }
-
-        /// <summary>
-        ///   Requires that the string <paramref name="argument"/> is not null or empty. Throws an
-        ///   exception with the specified <paramref name="message"/> if the requirement is not met.
-        /// </summary>
-        /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
-        /// <param name="message">Exception message to use if the requirement fails.</param>
-        /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
-        [DebuggerStepThrough]
-        public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument, string message)
-        {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, message);
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.Value.Length == 0)
-                throw ExceptionFactory.CreateArgumentException(argument, message);
+                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasEmptyString);
 
             return argument;
         }
@@ -55,27 +39,9 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {
-            return argument.IsNotNullOrWhiteSpace(ExceptionMessages.WasNullOrWhiteSpace);
-        }
-
-        /// <summary>
-        ///   Requires that the string <paramref name="argument"/> is not null, empty or only consisting
-        ///   of white-space characters. Throws an exception with the specified <paramref name="message"/>
-        ///   if the requirement is not met.
-        /// </summary>
-        /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
-        /// <param name="message">Exception message to use if the requirement fails.</param>
-        /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
-        [DebuggerStepThrough]
-        public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument, string message)
-        {
-            if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument, message);
-
-            if (String.IsNullOrWhiteSpace(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument, message);
+            argument.IsNotNullOrEmpty();
+            if (argument.Value.Any(Char.IsWhiteSpace))
+                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasWhiteSpace);
 
             return argument;
         }

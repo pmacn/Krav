@@ -35,18 +35,6 @@ namespace Krav.Tests
             }
 
             [Fact]
-            public void WhenEmptyWithMessage_ThrowsExceptionWithMessage()
-            {
-                var emptyEnumerable = Enumerable.Empty<int>();
-                var message = "It was empty";
-
-                var ex = Assert.Throws<ArgumentException>(
-                    () => Require.That(emptyEnumerable, ParameterName).IsNotEmpty(message));
-
-                Assert.Contains(message, ex.Message);
-            }
-
-            [Fact]
             public void WhenNotEmpty_DoesNotThrow()
             {
                 Assert.DoesNotThrow(

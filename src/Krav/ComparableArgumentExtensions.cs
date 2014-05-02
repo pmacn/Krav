@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -50,12 +49,11 @@ namespace Krav
         private static Argument<T> IsLessThanImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotLessThan_WasNull.Inject(limit));
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.CompareValueTo(limit) >= 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotLessThan.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotLessThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -101,12 +99,11 @@ namespace Krav
         private static Argument<T> IsLessThanOrEqualToImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotLessThanOrEqualTo_WasNull.Inject(limit));
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.CompareValueTo(limit) > 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotLessThanOrEqualTo.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotLessThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -152,12 +149,11 @@ namespace Krav
         private static Argument<T> IsGreaterThanImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotGreaterThan_WasNull.Inject(limit));
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.CompareValueTo(limit) <= 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotGreaterThan.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotGreaterThan.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -200,12 +196,11 @@ namespace Krav
         private static Argument<T> IsGreaterThanOrEqualToImpl<T>(Argument<T> argument, object limit)
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotGreaterThanOrEqualTo_WasNull.Inject(limit));
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.CompareValueTo(limit) < 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotGreaterThanOrEqualTo.Inject(limit, argument.Value));
+                    ExceptionMessages.Current.NotGreaterThanOrEqualTo.Inject(limit, argument.Value));
 
             return argument;
         }
@@ -228,16 +223,15 @@ namespace Krav
             where T: IComparable
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotInRange_WasNull.Inject(min, max));
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.CompareValueTo(min) < 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooLow.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
         }
@@ -259,16 +253,15 @@ namespace Krav
             where T : IComparable<T>
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument,
-                    ExceptionMessages.NotInRange_WasNull.Inject(min, max));
+                throw ExceptionFactory.CreateNullException(argument);
 
             if (argument.CompareValueTo(min) < 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooLow.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooLow.Inject(min, max));
 
             if (argument.CompareValueTo(max) > 0)
                 throw ExceptionFactory.OutOfRange(argument,
-                    ExceptionMessages.NotInRange_TooHigh.Inject(min, max));
+                    ExceptionMessages.Current.NotInRange_TooHigh.Inject(min, max));
 
             return argument;
         }
@@ -287,7 +280,7 @@ namespace Krav
             {
                 throw ExceptionFactory.CreateArgumentException(
                     argument,
-                    ExceptionMessages.IncomparableTypes.Inject(
+                    ExceptionMessages.Current.IncomparableTypes.Inject(
                         argument.GetType().FullName,
                         comparisonValue.GetType().FullName));
             }

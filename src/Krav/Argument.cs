@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Krav.Resources;
 
 namespace Krav
 {
@@ -70,21 +69,7 @@ namespace Krav
         [DebuggerStepThrough]
         public Argument<T> IsOfType<TExpected>()
         {
-            return this.IsOfType(typeof(TExpected), null);
-        }
-
-        /// <summary>
-        ///   Requires that the argument is of type <typeparamref name="TExpected"/> or a derived type. Throws
-        ///   an exception with the specified <paramref name="message"/> if there requirement is not met.
-        /// </summary>
-        /// <typeparam name="TExpected">The expected type</typeparam>
-        /// <param name="message">Exception message to use if the requirement is not met.</param>
-        /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        [DebuggerStepThrough]
-        public Argument<T> IsOfType<TExpected>(string message)
-        {
-            return this.IsOfType(typeof(TExpected), message);
+            return this.IsOfType(typeof(TExpected));
         }
 
         /// <summary>
@@ -97,24 +82,12 @@ namespace Krav
         [DebuggerStepThrough]
         public Argument<T> IsOfType(Type expectedType)
         {
-            return IsOfType(expectedType, null);
-        }
-
-        /// <summary>
-        ///   Requires that the argument is of the <paramref name="expectedType"/> or a derived type. Throws
-        ///   an exception with the specified <paramref name="message"/> if there requirement is not met.
-        /// </summary>
-        /// <param name="expectedType">The expected type.</param>
-        /// <param name="message">Exception message to use if the requirement is not met.</param>
-        /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        [DebuggerStepThrough]
-        public Argument<T> IsOfType(Type expectedType, string message)
-        {
             var actualType = Value == null ? typeof(T) : Value.GetType();
 
             if (!expectedType.IsAssignableFrom(actualType))
-                throw ExceptionFactory.CreateArgumentException(this, message ?? ExceptionMessages.NotOfType.Inject(expectedType.FullName, actualType.FullName));
+                throw ExceptionFactory.CreateArgumentException(
+                    this,
+                    ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName));
 
             return this;
         }
