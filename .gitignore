@@ -20,6 +20,7 @@ tools/xunit.runners
 tools/FAKE
 
 #test results
+tests/
 testresults/
 
 # dist
@@ -36,7 +37,7 @@ deploy/builds
 *.orig
 
 # nuget
-[Pp]ackages/
+#[Pp]ackages/
 
 # approvals#
 *.received.txt
