@@ -19,6 +19,7 @@ let buildMode = getBuildParamOrDefault "buildMode" "Release"
 
 // Directories
 let buildDirFor project = sprintf "./build/%s/" project.name
+let testsDir = "./tests/"
 let testResultsDir = "./testresults/"
 let distDirFor project = sprintf "./dist/%s/" project.name
 let assemblyInfoPathFor project = sprintf "./src/%s/Properties/AssemblyInfo.cs" project.name
@@ -53,15 +54,20 @@ Target "Build" (fun _ ->
   |> Seq.iter build
 )
 
-Target "UnitTests" (fun _ ->
-  let unitTest project =
-    !! (sprintf "src/Tests/%s.Tests/bin/%s/**/%s.Tests.dll" project.name buildMode project.name)
-    |> xUnit (fun p ->
-      {p with 
-        Verbose = false
-        OutputDir = testResultsDir })
 
-  projects |> Seq.iter unitTest
+Target "BuildTests" (fun _ ->
+  !! "src/Tests/**/*.csproj"
+  |> MSBuildRelease testsDir "Build"
+  |> Log "TestBuild-Output: "
+)
+
+
+Target "UnitTests" (fun _ ->
+  !! (sprintf "%s/*.Tests.dll" testsDir)
+  |> xUnit (fun p ->
+    {p with 
+      Verbose = false
+      OutputDir = testResultsDir })
 )
 
 Target "Package" (fun _ ->
@@ -89,6 +95,7 @@ Target "Default" DoNothing
 // Dependencies
 "Clean"
   ==> "Build"
+  ==> "BuildTests"
   ==> "UnitTests"
   ==> "Default"
   ==> "Package"

@@ -20,6 +20,7 @@ tools/xunit.runners
 tools/FAKE
 
 #test results
+tests/
 testresults/
 
 # dist
