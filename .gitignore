@@ -36,8 +36,8 @@ deploy/builds
 *.sdf
 *.orig
 
-# nuget
-#[Pp]ackages/
+# build script NuGet packages
+/[Pp]ackages/
 
 # approvals#
 *.received.txt
