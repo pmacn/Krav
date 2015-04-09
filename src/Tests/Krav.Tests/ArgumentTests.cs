@@ -1,6 +1,5 @@
 ﻿using System;
 using Xunit;
-using Xunit.Extensions;
 
 namespace Krav.Tests
 {
@@ -56,8 +55,7 @@ namespace Krav.Tests
             [Fact]
             public void WhenOfType_DoesNotThrow()
             {
-                Assert.DoesNotThrow(
-                    () => Require.That(expectedArgument, ParameterName).IsOfType<ExpectedType>());
+                Require.That(expectedArgument, ParameterName).IsOfType<ExpectedType>();
             }
 
             [Fact]
