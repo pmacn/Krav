@@ -2,6 +2,9 @@
 
 Another one of those pesky guard clause libraries. Krav means requirement in Swedish.
 
+
+[![Build status](https://ci.appveyor.com/api/projects/status/6856jh3d3imek9t1/branch/master?svg=true)](https://ci.appveyor.com/project/pmacn/krav/branch/master)
+
 ## Installation
 
 You can install `Krav` through nuget
