@@ -19,8 +19,7 @@ public class RequireThatTests
         [Fact]
         public void WhenNonNullObject_DoesNotThrowException()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.NotNull(new object(), "name"));
+            RequireThat.NotNull(new object(), "name");
         }
 
         [Fact]
@@ -40,8 +39,7 @@ public class RequireThatTests
         [Fact]
         public void WhenNullableWithValue_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.NotNull(new Nullable<int>(1), "name"));
+            RequireThat.NotNull(new Nullable<int>(1), "name");
         }
     }
 
@@ -64,7 +62,7 @@ public class RequireThatTests
         [Fact]
         public void WhenNotEmptyString_DoesNotThrow()
         {
-            Assert.DoesNotThrow(() => RequireThat.NotNullOrEmpty("value", "name"));
+            RequireThat.NotNullOrEmpty("value", "name");
         }
 
         [Fact]
@@ -84,8 +82,7 @@ public class RequireThatTests
         [Fact]
         public void WhenNotEmptyEnumerable_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.NotNullOrEmpty(Enumerable.Range(1, 1), "name"));
+            RequireThat.NotNullOrEmpty(Enumerable.Range(1, 1), "name");
         }
     }
 
@@ -110,8 +107,7 @@ public class RequireThatTests
         public void WhenContainsNoNull_DoesNotThrow()
         {
             var enumerable = new[] { new object(), new object() };
-            Assert.DoesNotThrow(
-                () => RequireThat.DoesNotContainNull(enumerable, "name"));
+            RequireThat.DoesNotContainNull(enumerable, "name");
         }
     }
 
@@ -141,8 +137,7 @@ public class RequireThatTests
         [Fact]
         public void WhenNotWhitespace_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.NotNullOrWhitespace("value", "name"));
+            RequireThat.NotNullOrWhitespace("value", "name");
         }
     }
 
@@ -158,8 +153,7 @@ public class RequireThatTests
         [Fact]
         public void WhenSingleIsNumber_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.IsNumber(0.0f, "name"));
+            RequireThat.IsNumber(0.0f, "name");
         }
 
         [Fact]
@@ -172,8 +166,7 @@ public class RequireThatTests
         [Fact]
         public void WhenDoubleIsNumber_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.IsNumber(0.0d, "name"));
+            RequireThat.IsNumber(0.0d, "name");
         }
     }
 
@@ -189,15 +182,13 @@ public class RequireThatTests
         [Fact]
         public void WhenOfType_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.IsOfType<int>(1, "name"));
+            RequireThat.IsOfType<int>(1, "name");
         }
 
         [Fact]
         public void WhenOfDerivedType_DoesNotThrow()
         {
-            Assert.DoesNotThrow(
-                () => RequireThat.IsOfType<IEnumerable>(new List<string>(), "name"));
+            RequireThat.IsOfType<IEnumerable>(new List<string>(), "name");
         }
     }
 }

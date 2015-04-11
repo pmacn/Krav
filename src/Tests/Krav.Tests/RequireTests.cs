@@ -10,15 +10,13 @@ namespace Krav.Tests
             [Fact]
             public void WithoutName_DoesNotThrow()
             {
-                Assert.DoesNotThrow(
-                    () => Require.That("foo", "argument"));
+                Require.That("foo");
             }
 
             [Fact]
             public void WithName_DoesNotThrow()
             {
-                Assert.DoesNotThrow(
-                    () => Require.That("foo", "argument"));
+                Require.That("foo", "argument");
             }
         }
 
@@ -27,25 +25,24 @@ namespace Krav.Tests
             [Fact]
             public void FalseStatement_ThrowsException()
             {
-                var statement = false;
-                string message = "message";
+                const bool Statement = false;
+                const string Message = "message";
 
                 var ex = Assert.Throws<ArgumentException>(
                     () =>
                     {
-                        Require.That(statement, message);
+                        Require.That(Statement, Message);
                     });
 
-                Assert.Equal(message, ex.Message);
+                Assert.Equal(Message, ex.Message);
                 Assert.Equal(null, ex.ParamName);
             }
 
             [Fact]
             public void TrueStatement_DoesNotThrow()
             {
-                var statement = true;
-                Assert.DoesNotThrow(
-                    () => Require.That(statement, "message"));
+                const bool Statement = true;
+                Require.That(Statement, "message");
             }
         }
     }

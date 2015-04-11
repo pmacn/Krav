@@ -37,8 +37,7 @@ namespace Krav.Tests
             [Fact]
             public void WhenNotEmpty_DoesNotThrow()
             {
-                Assert.DoesNotThrow(
-                    () => Require.That(Enumerable.Range(0, 100)).IsNotEmpty());
+                Require.That(Enumerable.Range(0, 100)).IsNotEmpty();
             }
 
             [Fact]

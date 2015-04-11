@@ -1,9 +1,8 @@
-#r "tools/FAKE/tools/FakeLib.dll"
+#r "tools/FAKE.Core/tools/FakeLib.dll"
 open Fake
 open System
 open Fake.AssemblyInfoFile
-
-RestorePackages()
+open Fake.XUnit2Helper
 
 type project = { name: string; description: string; version: string; }
 
@@ -64,9 +63,8 @@ Target "BuildTests" (fun _ ->
 
 Target "UnitTests" (fun _ ->
   !! (sprintf "%s/*.Tests.dll" testsDir)
-  |> xUnit (fun p ->
-    {p with 
-      Verbose = false
+  |> xUnit2 (fun p ->
+    {p with
       OutputDir = testResultsDir })
 )
 

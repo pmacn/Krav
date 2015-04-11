@@ -13,11 +13,11 @@
 *.cache
 
 # build
-build/
+/build/
 
 #tools
-tools/xunit.runners
-tools/FAKE
+tools/xunit.runner.console
+tools/FAKE.Core
 
 #test results
 tests/
@@ -36,7 +36,6 @@ deploy/builds
 *.sdf
 *.orig
 
-# build script NuGet packages
 /[Pp]ackages/
 
 # approvals#
