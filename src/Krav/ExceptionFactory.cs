@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Krav
+﻿namespace Krav
 {
+    using System;
+
     internal static class ExceptionFactory
     {
         public static ArgumentException CreateArgumentException<T>(Argument<T> argument, string message)

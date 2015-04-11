@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections;
-
-namespace Krav
+﻿namespace Krav
 {
+    using System;
+    using System.Collections;
+
     /// <summary>
     ///   A set of requirement methods to use when verifying that arguments meet specific requirements.
     /// </summary>
@@ -17,7 +17,9 @@ namespace Krav
         public static void ThisHolds(bool condition, string message)
         {
             if (!condition)
+            {
                 throw new ArgumentException(message);
+            }
         }
 
         /// <summary>
@@ -31,7 +33,9 @@ namespace Krav
             where T : class
         {
             if (value == null)
+            {
                 throw new ArgumentNullException(name, ExceptionMessages.Current.WasNull);
+            }
         }
 
         /// <summary>
@@ -45,8 +49,10 @@ namespace Krav
         public static void NotNull<T>(T? value, string name)
             where T : struct
         {
-            if (value == null || !value.HasValue)
+            if (value == null)
+            {
                 throw new ArgumentNullException(name, ExceptionMessages.Current.WasNull);
+            }
         }
 
         /// <summary>
@@ -61,7 +67,9 @@ namespace Krav
         {
             NotNull(value, name);
             if (value.Length == 0)
+            {
                 throw new ArgumentException(ExceptionMessages.Current.WasEmptyString, name);
+            }
         }
 
         /// <summary>
@@ -76,7 +84,9 @@ namespace Krav
         {
             NotNull(value, name);
             if (!value.GetEnumerator().MoveNext())
+            {
                 throw new ArgumentException(ExceptionMessages.Current.EmptyCollection, name);
+            }
         }
 
         /// <summary>
@@ -112,8 +122,10 @@ namespace Krav
         public static void NotNullOrWhitespace(string value, string name)
         {
             NotNullOrEmpty(value, name);
-            if (value.Any(Char.IsWhiteSpace))
+            if (value.Any(char.IsWhiteSpace))
+            {
                 throw new ArgumentException(ExceptionMessages.Current.WasWhiteSpace, name);
+            }
         }
 
         /// <summary>
@@ -125,8 +137,10 @@ namespace Krav
         /// <exception cref="T:System.ArgumentException">Thrown if <paramref name="value"/> is not a number.</exception>
         public static void IsNumber(double value, string name)
         {
-            if (Double.IsNaN(value))
+            if (double.IsNaN(value))
+            {
                 throw new ArgumentException(ExceptionMessages.Current.IsNotANumber, name);
+            }
         }
         
         /// <summary>
@@ -138,8 +152,10 @@ namespace Krav
         /// <exception cref="T:System.ArgumentException">Thrown if <paramref name="value"/> is not a number.</exception>
         public static void IsNumber(float value, string name)
         {
-            if (Single.IsNaN(value))
+            if (float.IsNaN(value))
+            {
                 throw new ArgumentException(ExceptionMessages.Current.IsNotANumber, name);
+            }
         }
 
         /// <summary>
@@ -167,9 +183,11 @@ namespace Krav
         {
             var actualType = value.GetType();
             if (!expectedType.IsAssignableFrom(actualType))
+            {
                 throw new ArgumentException(
                     ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName),
                     name);
+            }
         }
     }
 }

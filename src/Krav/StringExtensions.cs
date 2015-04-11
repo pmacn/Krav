@@ -1,7 +1,8 @@
-using System;
-
 namespace Krav
 {
+    using System;
+    using System.Linq;
+
     /// <summary>
     ///   Extension methods for <see cref="T:System.String"/>
     /// </summary>
@@ -15,7 +16,7 @@ namespace Krav
         /// <returns>The resulting <see cref="T:System.String"/> after injecting the arguments.</returns>
         public static string Inject(this string format, params object[] args)
         {
-            return String.Format(format, args);
+            return string.Format(format, args);
         }
 
         /// <summary>
@@ -26,11 +27,7 @@ namespace Krav
         /// <returns>true if any of the characters in the string satisfies the predicate; otherwise false</returns>
         public static bool Any(this string source, Func<char, bool> predicate)
         {
-            foreach (var c in source)
-                if (predicate(c))
-                    return true;
-
-            return false;
+            return source.Cast<char>().Any(predicate);
         }
     }
 }

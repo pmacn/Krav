@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System.Collections;
+    using System.Diagnostics;
+    using System.Linq;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Collections.IEnumerable"/>
     /// </summary>
@@ -22,10 +23,14 @@ namespace Krav
             where T : IEnumerable
         {
             if (argument.Value == null)
+            {
                 throw ExceptionFactory.CreateNullException(argument);
+            }
 
             if (!argument.Value.GetEnumerator().MoveNext())
+            {
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.EmptyCollection);
+            }
 
             return argument;
         }
@@ -44,15 +49,13 @@ namespace Krav
             where T : IEnumerable
         {
             if (argument.Value == null)
-                throw ExceptionFactory.CreateNullException(argument);
-
-            var enumerator = argument.Value.GetEnumerator();
-            while (enumerator.MoveNext())
             {
-                if (enumerator.Current == null)
-                {
-                    throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.ContainedNull);
-                }
+                throw ExceptionFactory.CreateNullException(argument);
+            }
+
+            if (argument.Value.Cast<object>().Any(o => o == null))
+            {
+                throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.ContainedNull);
             }
 
             return argument;

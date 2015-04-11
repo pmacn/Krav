@@ -1,8 +1,7 @@
-using System;
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System.Diagnostics;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument"/>s of reference types
     /// </summary>
@@ -21,7 +20,9 @@ namespace Krav
             where T : class
         {
             if (argument.Value == null)
+            {
                 throw ExceptionFactory.CreateNullException(argument);
+            }
 
             return argument;
         }

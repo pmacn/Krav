@@ -1,7 +1,7 @@
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System.Diagnostics;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument&lt;System.Nullable&gt;"/>
     /// </summary>
@@ -20,7 +20,9 @@ namespace Krav
             where T : struct
         {
             if (argument.Value == null || !argument.Value.HasValue)
+            {
                 throw ExceptionFactory.CreateNullException(argument);
+            }
 
             return argument;
         }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-
-namespace Krav
+﻿namespace Krav
 {
+    using System;
+    using System.Diagnostics;
+    using System.Runtime.CompilerServices;
+
     /// <summary>
     ///   An argument that can be verified to satisfy specific requirements.
     /// </summary>
@@ -13,8 +13,6 @@ namespace Krav
     {
         internal readonly T Value;
 
-        internal string Name { get { return name ?? (name = GetMemberName()); } }
-
         private readonly Func<T> function;
 
         private string name;
@@ -22,7 +20,7 @@ namespace Krav
         internal Argument(string name, T value)
         {
             this.name = name;
-            Value = value;
+            this.Value = value;
         }
 
         internal Argument(Func<T> function)
@@ -30,33 +28,21 @@ namespace Krav
             this.function = function;
             this.Value = function();
         }
-        
-        private string GetMemberName()
+
+        internal string Name
         {
-            if (function == null)
-                return String.Empty;
+            get
+            {
+                return this.name ?? (this.name = this.GetMemberName());
+            }
+        }
 
-            var target = function.Target;
-            if (target == null)
-                return String.Empty;
-
-            var targetType = target.GetType();
-
-            // TODO: Need to check if there's a better way to assert that the target is a lambda closure class
-            // or whatever they would be called.
-            var attributes = targetType.GetCustomAttributes(typeof(CompilerGeneratedAttribute), false);
-            if (attributes.Length == 0)
-                return String.Empty;
-
-            // HACK: since GetMethodBody is not available in PCL's this seems to be the best
-            // bet at getting the name of the variable in the delegate.
-            // This will of course fail horribly if the implementation of lambda closures
-            // ever changes.
-            var functionFields = target.GetType().GetFields();
-            if (functionFields.Length == 1)
-                return functionFields[0].Name;
-
-            return String.Empty;
+        private string DebuggerDisplay
+        {
+            get
+            {
+                return string.Format("Argument<{0}>: Value: {1}; Name: {2}", typeof(T).Name, this.Value, this.Name);
+            }
         }
 
         /// <summary>
@@ -82,22 +68,47 @@ namespace Krav
         [DebuggerStepThrough]
         public Argument<T> IsOfType(Type expectedType)
         {
-            var actualType = Value == null ? typeof(T) : Value.GetType();
+            var actualType = this.Value == null ? typeof(T) : this.Value.GetType();
 
             if (!expectedType.IsAssignableFrom(actualType))
+            {
                 throw ExceptionFactory.CreateArgumentException(
                     this,
                     ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName));
+            }
 
             return this;
         }
 
-        private string DebuggerDisplay
+        private string GetMemberName()
         {
-            get
+            if (this.function == null)
             {
-                return String.Format("Argument<{0}>: Value: {1}; Name: {2}", typeof(T).Name, Value, Name);
+                return string.Empty;
             }
+
+            var target = this.function.Target;
+            if (target == null)
+            {
+                return string.Empty;
+            }
+
+            var targetType = target.GetType();
+
+            // TODO: Need to check if there's a better way to assert that the target is a lambda closure class
+            // or whatever they would be called.
+            var attributes = targetType.GetCustomAttributes(typeof(CompilerGeneratedAttribute), false);
+            if (attributes.Length == 0)
+            {
+                return string.Empty;
+            }
+
+            // HACK: since GetMethodBody is not available in PCL's this seems to be the best
+            // bet at getting the name of the variable in the delegate.
+            // This will of course fail horribly if the implementation of lambda closures
+            // ever changes.
+            var functionFields = target.GetType().GetFields();
+            return functionFields.Length == 1 ? functionFields[0].Name : string.Empty;
         }
     }
 }
