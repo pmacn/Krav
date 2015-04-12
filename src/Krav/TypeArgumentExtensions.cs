@@ -1,8 +1,8 @@
-using System;
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     ///   Extensions for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Type"/>
     /// </summary>
@@ -46,11 +46,16 @@ namespace Krav
         public static Argument<Type> Is(this Argument<Type> argument, Type expectedType)
         {
             if (argument.Value == null)
+            {
                 throw ExceptionFactory.CreateNullException(argument);
+            }
 
             if (!expectedType.IsAssignableFrom(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument,
+            {
+                throw ExceptionFactory.CreateArgumentException(
+                    argument,
                     ExceptionMessages.Current.IsNotExpectedType.Inject(expectedType.FullName, argument.Value.FullName));
+            }
 
             return argument;
         }

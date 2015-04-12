@@ -1,8 +1,7 @@
-using System;
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System.Diagnostics;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.String"/>
     /// </summary>
@@ -20,10 +19,14 @@ namespace Krav
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
             if (argument.Value == null)
+            {
                 throw ExceptionFactory.CreateNullException(argument);
+            }
 
             if (argument.Value.Length == 0)
+            {
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasEmptyString);
+            }
 
             return argument;
         }
@@ -40,8 +43,10 @@ namespace Krav
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {
             argument.IsNotNullOrEmpty();
-            if (argument.Value.Any(Char.IsWhiteSpace))
+            if (argument.Value.Any(char.IsWhiteSpace))
+            {
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.WasWhiteSpace);
+            }
 
             return argument;
         }

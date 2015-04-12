@@ -1,8 +1,8 @@
-using System;
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     ///   Access point for creating <see cref="T:Krav.Argument"/>s
     /// </summary>
@@ -19,7 +19,9 @@ namespace Krav
         public static void That(bool statement, string message)
         {
             if (!statement)
+            {
                 throw new ArgumentException(message);
+            }
         }
 
         /// <summary>
@@ -31,7 +33,7 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<T> That<T>(T value)
         {
-            return new Argument<T>(String.Empty, value);
+            return new Argument<T>(string.Empty, value);
         }
 
         /// <summary>

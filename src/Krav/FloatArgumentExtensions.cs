@@ -1,8 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace Krav
+﻿namespace Krav
 {
+    using System.Diagnostics;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument&lt;float&gt;"/>
     /// </summary>
@@ -18,9 +17,12 @@ namespace Krav
         [DebuggerStepThrough]
         public static Argument<float> IsANumber(this Argument<float> argument)
         {
-            if (Single.IsNaN(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument,
+            if (float.IsNaN(argument.Value))
+            {
+                throw ExceptionFactory.CreateArgumentException(
+                    argument,
                     ExceptionMessages.Current.IsNotANumber);
+            }
 
             return argument;
         }

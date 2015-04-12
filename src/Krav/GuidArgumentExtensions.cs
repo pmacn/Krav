@@ -1,8 +1,8 @@
-using System;
-using System.Diagnostics;
-
 namespace Krav
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Guid"/>
     /// </summary>
@@ -19,7 +19,9 @@ namespace Krav
         public static Argument<Guid> IsNotEmpty(this Argument<Guid> argument)
         {
             if (Guid.Empty.Equals(argument.Value))
+            {
                 throw ExceptionFactory.CreateArgumentException(argument, ExceptionMessages.Current.EmptyGuid);
+            }
 
             return argument;
         }

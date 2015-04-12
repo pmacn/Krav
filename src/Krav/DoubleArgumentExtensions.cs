@@ -1,8 +1,8 @@
-﻿﻿using System;
-using System.Diagnostics;
-
-namespace Krav
+﻿﻿namespace Krav
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Double"/>
     /// </summary>
