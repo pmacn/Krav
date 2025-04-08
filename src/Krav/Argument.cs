@@ -9,41 +9,12 @@
     /// </summary>
     /// <typeparam name="T">The <see cref="T:System.Type"/> of the argument</typeparam>
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
-    public class Argument<T>
+    public sealed class Argument<T>(T value, string name)
     {
-        internal readonly T Value;
+        public T Value { get; } = value;
 
-        private readonly Func<T> function;
+        public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
-        private string name;
-
-        internal Argument(string name, T value)
-        {
-            this.name = name;
-            this.Value = value;
-        }
-
-        internal Argument(Func<T> function)
-        {
-            this.function = function;
-            this.Value = function();
-        }
-
-        internal string Name
-        {
-            get
-            {
-                return this.name ?? (this.name = this.GetMemberName());
-            }
-        }
-
-        private string DebuggerDisplay
-        {
-            get
-            {
-                return string.Format("Argument<{0}>: Value: {1}; Name: {2}", typeof(T).Name, this.Value, this.Name);
-            }
-        }
 
         /// <summary>
         ///   Requires that the argument is of type <typeparamref name="TExpected"/> or a derived type. Throws
@@ -60,7 +31,7 @@
 
         /// <summary>
         ///   Requires that the argument is of the <paramref name="expectedType"/> or a derived type.
-        ///   Throws an exception if there requirement is not met.
+        ///   Throws an exception if the requirement is not met.
         /// </summary>
         /// <param name="expectedType">The expected type.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
@@ -74,41 +45,12 @@
             {
                 throw ExceptionFactory.CreateArgumentException(
                     this,
-                    ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName));
+                    ExceptionMessages.Current.NotOfType.Inject(
+                        expectedType.FullName ?? expectedType.Name,
+                        actualType.FullName ?? actualType.Name));
             }
 
             return this;
-        }
-
-        private string GetMemberName()
-        {
-            if (this.function == null)
-            {
-                return string.Empty;
-            }
-
-            var target = this.function.Target;
-            if (target == null)
-            {
-                return string.Empty;
-            }
-
-            var targetType = target.GetType();
-
-            // TODO: Need to check if there's a better way to assert that the target is a lambda closure class
-            // or whatever they would be called.
-            var attributes = targetType.GetCustomAttributes(typeof(CompilerGeneratedAttribute), false);
-            if (attributes.Length == 0)
-            {
-                return string.Empty;
-            }
-
-            // HACK: since GetMethodBody is not available in PCL's this seems to be the best
-            // bet at getting the name of the variable in the delegate.
-            // This will of course fail horribly if the implementation of lambda closures
-            // ever changes.
-            var functionFields = target.GetType().GetFields();
-            return functionFields.Length == 1 ? functionFields[0].Name : string.Empty;
         }
     }
 }

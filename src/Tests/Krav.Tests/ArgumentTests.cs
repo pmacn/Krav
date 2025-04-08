@@ -94,7 +94,7 @@ namespace Krav.Tests
             [Fact]
             public void WhenNull_TypeDetectionRevertsToParameterType()
             {
-                ExpectedType argument = null;
+                ExpectedType? argument = null;
 
                 var ex = Assert.Throws<ArgumentException>(
                     () => Require.That((object)argument, ParameterName).IsOfType<ExpectedType>());

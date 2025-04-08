@@ -185,7 +185,7 @@
             if (!expectedType.IsAssignableFrom(actualType))
             {
                 throw new ArgumentException(
-                    ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName, actualType.FullName),
+                    ExceptionMessages.Current.NotOfType.Inject(expectedType.FullName ?? expectedType.Name, actualType.FullName ?? actualType.Name),
                     name);
             }
         }

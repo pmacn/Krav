@@ -306,21 +306,19 @@
         {
             try
             {
-                if (argument.Value is IComparable<T> && comparisonValue is T)
+                switch (argument.Value)
                 {
-                    return (argument.Value as IComparable<T>).CompareTo((T)comparisonValue);
-                }
-
-                if (argument.Value is IComparable)
-                {
-                    return (argument.Value as IComparable).CompareTo(comparisonValue);
+                    case IComparable<T> comparable when comparisonValue is T value:
+                        return comparable.CompareTo(value);
+                    case IComparable argumentValue:
+                        return argumentValue.CompareTo(comparisonValue);
                 }
             }
             catch (ArgumentException)
             {
                 var message = ExceptionMessages.Current.IncomparableTypes.Inject(
-                    argument.GetType().FullName,
-                    comparisonValue.GetType().FullName);
+                    argument.GetType().FullName ?? argument.GetType().Name,
+                    comparisonValue.GetType().FullName ?? comparisonValue.GetType().Name);
                 throw ExceptionFactory.CreateArgumentException(argument, message);
             }
 

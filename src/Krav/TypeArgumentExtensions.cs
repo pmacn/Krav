@@ -34,7 +34,7 @@ namespace Krav
         /// </summary>
         /// <remarks>
         ///   This extension exists only because of <see cref="T:System.Windows.Data.IValueConverter"/>.
-        ///   There might be other valid use cases for it but I'm currently unaware of any.
+        ///   There might be other valid use cases for it, but I'm currently unaware of any.
         /// </remarks>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <param name="expectedType">
@@ -54,7 +54,9 @@ namespace Krav
             {
                 throw ExceptionFactory.CreateArgumentException(
                     argument,
-                    ExceptionMessages.Current.IsNotExpectedType.Inject(expectedType.FullName, argument.Value.FullName));
+                    ExceptionMessages.Current.IsNotExpectedType.Inject(
+                        expectedType.FullName ?? expectedType.Name,
+                        argument.Value.FullName ?? argument.Value.Name));
             }
 
             return argument;
