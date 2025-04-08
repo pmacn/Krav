@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8974ABF3-C25D-4974-A0B1-44A7A0EE44AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B6DB6C61-146F-4C79-9499-14C4EB341D9C}"
 	ProjectSection(SolutionItems) = preProject
-		..\build.bat = ..\build.bat
-		..\build.fsx = ..\build.fsx
-		..\Template.nuspec = ..\Template.nuspec
+		..\build.ps1 = ..\build.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Simple", "Krav.Simple\Krav.Simple.csproj", "{B52F3805-E3D8-40FD-8618-E9D5ACA7C462}"
@@ -87,5 +85,8 @@ Global
 		{B819F092-F369-4819-AD2F-E5DABE1A0D92} = {8974ABF3-C25D-4974-A0B1-44A7A0EE44AE}
 		{15BDBB0E-8296-41F6-82FA-1735F7FE347E} = {8974ABF3-C25D-4974-A0B1-44A7A0EE44AE}
 		{EB20D39B-1DA3-427F-96EC-3187B5A337E6} = {8974ABF3-C25D-4974-A0B1-44A7A0EE44AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE28B55E-4FF3-4D47-A34B-C44778ADEC0E}
 	EndGlobalSection
 EndGlobal

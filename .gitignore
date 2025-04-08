@@ -1,50 +1,40 @@
-# v2013-08-09.1
-# vs
-[Aa]pp_[Dd]ata/
-[Bb]in/
-[D]ebug/
-[Oo]bj/
-[Tt]est[Rr]esult/
-[Tt]emp/
+# .NET SDK stuff
 *.user
-*.vspscc
-*.vssscc
+*.rsuser
 *.suo
-*.cache
+*.userosscache
+*.sln.docstates
 
-# build
-/build/
+# Visual Studio
+.vs/
 
-#tools
-tools/xunit.runner.console
-tools/FAKE.Core
+# Rider
+.idea/
 
-#test results
-tests/
-testresults/
+# VS Code
+.vscode/
 
-# dist
-dist/
+# Global build artifacts
+bin/
+obj/
+TestResults/
 
-# deploy
-deploy/build
-deploy/builds
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
 
-# misc
-*~
-*.swp
-*.sdf
-*.orig
+# Logs
+*.log
 
-/[Pp]ackages/
+# Temporary files
+*.tmp
+*.temp
 
-# approvals#
-*.received.txt
+# dotnet-specific
+project.lock.json
+project.fragment.lock.json
 
-# resharper
-_ReSharper.*
-*.resharper*
-*.[Rr]e[Ss]harper.user
-
-#windows stuff
-Thumbs.db
+# Resharper / Rider
+.ReSharper/
+*.DotSettings.user
