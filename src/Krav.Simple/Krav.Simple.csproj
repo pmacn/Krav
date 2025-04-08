@@ -12,6 +12,7 @@
 		<Product>Krav.Simple</Product>
 		<Version>0.2.0</Version>
 		<FileVersion>0.2.0</FileVersion>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
 		<PackageId>Krav.Simple</PackageId>
 		<Title>Krav.Simple</Title>
@@ -25,6 +26,17 @@
 		<Copyright>© Peter Karlsson.</Copyright>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
 
 
 	<ItemGroup>

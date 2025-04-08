@@ -4,7 +4,7 @@ namespace Krav
     using System.Diagnostics;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Guid"/>
+    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Guid"/>.
     /// </summary>
     public static class GuidArgumentExtensions
     {

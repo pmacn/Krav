@@ -1,10 +1,10 @@
-﻿﻿namespace Krav
+﻿namespace Krav
 {
-    using System;
     using System.Diagnostics;
+    using static Double;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Double"/>
+    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Double"/>.
     /// </summary>
     public static class DoubleArgumentExtensions
     {
@@ -18,9 +18,12 @@
         [DebuggerStepThrough]
         public static Argument<double> IsANumber(this Argument<double> argument)
         {
-            if (Double.IsNaN(argument.Value))
-                throw ExceptionFactory.CreateArgumentException(argument,
+            if (IsNaN(argument.Value))
+            {
+                throw ExceptionFactory.CreateArgumentException(
+                    argument,
                     ExceptionMessages.Current.IsNotANumber);
+            }
 
             return argument;
         }

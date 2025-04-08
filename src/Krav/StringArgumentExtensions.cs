@@ -3,7 +3,7 @@ namespace Krav
     using System.Diagnostics;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.String"/>
+    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.String"/>.
     /// </summary>
     public static class StringArgumentExtensions
     {
@@ -13,8 +13,8 @@ namespace Krav
         /// </summary>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="System.ArgumentNullException">Thrown if the argument value is <c>null</c>.</exception>
+        /// <exception cref="System.ArgumentException">Thrown if the argument value is an empty string.</exception>
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrEmpty(this Argument<string> argument)
         {
@@ -37,8 +37,10 @@ namespace Krav
         /// </summary>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
-        /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>
-        /// <exception cref="T:System.ArgumentNullException">Thrown if the requirement is not met.</exception>
+        /// <exception cref="System.ArgumentNullException">Thrown if the argument value is <c>null</c>.</exception>
+        /// <exception cref="System.ArgumentException">
+        /// Thrown if the argument value is an empty string or contains only white-space characters.
+        /// </exception>
         [DebuggerStepThrough]
         public static Argument<string> IsNotNullOrWhiteSpace(this Argument<string> argument)
         {

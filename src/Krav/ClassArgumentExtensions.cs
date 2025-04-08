@@ -3,7 +3,7 @@ namespace Krav
     using System.Diagnostics;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument"/>s of reference types
+    ///   Requirements for <see cref="T:Krav.Argument"/>s of reference types.
     /// </summary>
     public static class ClassArgumentExtensions
     {

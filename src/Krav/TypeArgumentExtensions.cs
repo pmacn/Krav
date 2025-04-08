@@ -4,7 +4,7 @@ namespace Krav
     using System.Diagnostics;
 
     /// <summary>
-    ///   Extensions for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Type"/>
+    ///   Extensions for <see cref="T:Krav.Argument"/>s of <see cref="T:System.Type"/>.
     /// </summary>
     public static class TypeArgumentExtensions
     {
@@ -15,9 +15,11 @@ namespace Krav
         /// </summary>
         /// <remarks>
         ///   This extension exists only because of <see cref="T:System.Windows.Data.IValueConverter"/>.
-        ///   There might be other valid use cases for it but I'm currently unaware of any.
+        ///   There might be other valid use cases for it, but I'm currently unaware of any.
         /// </remarks>
-        /// <typeparam name="TExpected"></typeparam>
+        /// <typeparam name="TExpected">
+        ///   The <see cref="T:System.Type"/> that the <paramref name="argument"/> needs to be of.
+        /// </typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
         /// <exception cref="T:System.ArgumentException">Thrown if the requirement is not met.</exception>

@@ -1,4 +1,4 @@
-﻿namespace Krav
+namespace Krav
 {
     using System;
     using System.Collections;
@@ -142,7 +142,7 @@
                 throw new ArgumentException(ExceptionMessages.Current.IsNotANumber, name);
             }
         }
-        
+
         /// <summary>
         ///   Requires that <paramref name="value"/> is a number.
         ///   Throws an exception if the requirement is not met.

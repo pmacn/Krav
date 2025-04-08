@@ -16,19 +16,11 @@ You can install `Krav` through nuget
 
 Using the library is as simple as this
 
-    Require.That(foo, "foo").IsNotNull();
-    Require.That(bar, "bar").IsANumber();
-    Require.That(baz, "baz").GreaterThan(1).LessThan(4);
+    Require.That(foo).IsNotNull();
+    Require.That(bar).IsANumber();
+    Require.That(baz).IsANumber().GreaterThan(1).LessThan(4);
 
-## Expression Usage
-
-You can also use lambda expressions for that lovely refactor-safe feeling. Keep in mind that this method is costlier in performance. You can run the provided performance tests to find out just how much costlier. But for anything that isn't library code this should probably be the technique of choice.
-
-    Require.That(() => foo).IsNotNull();
-    Require.That(() => bar).IsANumber();
-    Require.That(() => baz).GreaterThan(1).LessThan(4);
-
-And if you were that worried about performance you would be using `Krav.Simple` instead.
+If you're really worried about performance you might want to use `Krav.Simple` instead.
 
 ## Simple?
 
@@ -65,12 +57,6 @@ There's a `Krav.PerformanceTests` project that runs a number of iterations using
     Total time: 0.12 ms (404 ticks)
     Average time: 0.01 ms (20.2 ticks)
     Range: 0.01 - 0.01 ms (19 - 29 ticks)
-
-    Lambda test results
-    -------------------
-    Total time: 0.21 ms (713 ticks)
-    Average time: 0.01 ms (35.65 ticks)
-    Range: 0.01 - 0.10 ms (20 - 316 ticks)
 
     Simple test results
     -------------------

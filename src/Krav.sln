@@ -24,6 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krav.Messages", "Krav.Messa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{22548702-D9C7-4166-9B76-B9D394B7D204}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		..\CONTRIBUTING.md = ..\CONTRIBUTING.md
 		..\README.md = ..\README.md
 	EndProjectSection

@@ -4,7 +4,7 @@
     using System.Diagnostics;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.IComparable"/>
+    ///   Requirements for <see cref="T:Krav.Argument"/>s of <see cref="T:System.IComparable"/>.
     /// </summary>
     public static class ComparableArgumentExtensions
     {
@@ -26,7 +26,7 @@
         {
             return IsLessThanImpl(argument, limit);
         }
-  
+
         /// <summary>
         ///   Requires that the <paramref name="argument"/> is less than <paramref name="limit"/>.
         ///   Throws an exception if the requirement is not met.
@@ -165,7 +165,7 @@
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <param name="min">The minimum value of the range.</param>
-        /// <param name="max">The maximum value of the range</param>
+        /// <param name="max">The maximum value of the range.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
         /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
         /// <exception cref="T:System.ArgumetException">Thrown if the argument is not comparable to the range limits.</exception>
@@ -204,7 +204,7 @@
         /// <typeparam name="T">The type of the <paramref name="argument"/>.</typeparam>
         /// <param name="argument">The <see cref="T:Krav.Argument"/> to verify.</param>
         /// <param name="min">The minimum value of the range.</param>
-        /// <param name="max">The maximum value of the range</param>
+        /// <param name="max">The maximum value of the range.</param>
         /// <returns>The verified <see cref="T:Krav.Argument"/>.</returns>
         /// <exception cref="T:System.ArgumentNullException">Thrown if the argument is null.</exception>
         /// <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the requirement is not met.</exception>

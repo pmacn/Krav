@@ -3,7 +3,7 @@ namespace Krav
     using System.Diagnostics;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument&lt;System.Nullable&gt;"/>
+    ///   Requirements for <see cref="T:Krav.Argument&lt;System.Nullable&gt;"/>.
     /// </summary>
     public static class NullableArgumentExtensions
     {

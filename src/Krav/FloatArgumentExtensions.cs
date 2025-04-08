@@ -3,7 +3,7 @@
     using System.Diagnostics;
 
     /// <summary>
-    ///   Requirements for <see cref="T:Krav.Argument&lt;float&gt;"/>
+    ///   Requirements for <see cref="T:Krav.Argument&lt;float&gt;"/>.
     /// </summary>
     public static class FloatArgumentExtensions
     {
